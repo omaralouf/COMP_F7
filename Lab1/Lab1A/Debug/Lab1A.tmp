@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\Debug\Lab1A.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Lab1A.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Lab1A.map</FILE>
+  <FILE>Lab1A.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</FILE><LINE>10</LINE></start>
+  <while><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</FILE><LINE>16</LINE></while>
+  <not_equal><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</FILE><LINE>22</LINE></not_equal>
+  <end><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</FILE><LINE>38</LINE></end>
+  <a_soh_b><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</FILE><LINE>33</LINE></a_soh_b>
+  <a_less_b><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab1\Lab1A\main.asm</FILE><LINE>28</LINE></a_less_b>
+ </LABELS>
+</ASSEMBLER_INFO>

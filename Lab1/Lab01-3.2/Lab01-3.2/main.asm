@@ -16,7 +16,7 @@
 
 .dseg					; define data segment 
 .org 0x200				; set starting address to 0x200
-int_val: .byte 3		; allocate 3 bytes of data memory to store the integer 
+int_val: .byte 4		; allocate 3 bytes of data memory to store the integer 
 
 .cseg 
 num_str: .db "325658"	; define number string "325658" which is stored in program memory 
@@ -57,8 +57,7 @@ main:
 	
 	add r9, r24
 	adc r10, r25
-	adc r11, r26
-	adc r12, r27		; add the result of the third multiplication to r12-r9
+	adc r11, r26		; add the result of the third multiplication to r12-r9
 
 	mov n_byte0, r9
 	mov n_byte1, r10

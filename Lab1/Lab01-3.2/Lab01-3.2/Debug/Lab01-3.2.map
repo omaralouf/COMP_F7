@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm Thu Aug 09 16:13:06 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm Thu Aug 09 16:36:52 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1367,4 +1367,4 @@ DEF  n_byte2      r15
 DSEG int_val      00000200
 CSEG num_str      00000000
 CSEG main         0000000b
-CSEG loop         00000032
+CSEG loop         00000031

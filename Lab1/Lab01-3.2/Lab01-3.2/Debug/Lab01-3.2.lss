@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm Thu Aug 09 16:13:06 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm Thu Aug 09 16:36:52 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
@@ -1904,7 +1904,7 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm(8): Incl
                                  
                                  .dseg					; define data segment 
                                  .org 0x200				; set starting address to 0x200
-000200                           int_val: .byte 3		; allocate 3 bytes of data memory to store the integer 
+000200                           int_val: .byte 4		; allocate 3 bytes of data memory to store the integer 
                                  
                                  .cseg 
 000000 3233
@@ -1947,32 +1947,31 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm(8): Incl
                                  	
 00001e 0e98                      	add r9, r24
 00001f 1ea9                      	adc r10, r25
-000020 1eba                      	adc r11, r26
-000021 1ecb                      	adc r12, r27		; add the result of the third multiplication to r12-r9
+000020 1eba                      	adc r11, r26		; add the result of the third multiplication to r12-r9
                                  
-000022 2cd9                      	mov n_byte0, r9
-000023 2cea                      	mov n_byte1, r10
-000024 2cfb                      	mov n_byte2, r11
+000021 2cd9                      	mov n_byte0, r9
+000022 2cea                      	mov n_byte1, r10
+000023 2cfb                      	mov n_byte2, r11	; move the total into n 
                                  
-000025 9125                      	lpm r18, z+			; Load a character from Flash memory
-000026 5320                      	subi r18, 48		; subtract the ascii value of zero from the string
-000027 0ed2                      	add n_byte0, r18
-000028 1ee3                      	adc n_byte1, r19
-000029 1ef3                      	adc n_byte2, r19	; sign extend the character 
+000024 9125                      	lpm r18, z+			; Load a character from Flash memory
+000025 5320                      	subi r18, 48		; subtract the ascii value of zero from the string
+000026 0ed2                      	add n_byte0, r18
+000027 1ee3                      	adc n_byte1, r19
+000028 1ef3                      	adc n_byte2, r19	; sign extend the character 
                                  
-00002a e0c0                      	ldi yl, low(int_val)
-00002b e0d2                      	ldi yh, high(int_val)	; y pointer points to start of int_val
+000029 e0c0                      	ldi yl, low(int_val)
+00002a e0d2                      	ldi yh, high(int_val)	; y pointer points to start of int_val
                                  
-00002c 92d9                      	st y+, n_byte0
-00002d 92e9                      	st y+, n_byte1
-00002e 92f9                      	st y+, n_byte2
+00002b 92d9                      	st y+, n_byte0
+00002c 92e9                      	st y+, n_byte1
+00002d 92f9                      	st y+, n_byte2		; store the integer in data memory 
                                  
-00002f 9513                      	inc char_i			; increment the counter
-000030 3016                      	cpi char_i, 6
-000031 f2cc                      	brlt main
+00002e 9513                      	inc char_i			; increment the counter
+00002f 3016                      	cpi char_i, 6
+000030 f2d4                      	brlt main
                                  
                                  loop:
-000032 cfff                      	rjmp loop
+000031 cfff                      	rjmp loop
                                  
 
 
@@ -1992,14 +1991,14 @@ counted separately from r26..r31 here.
 
 "ATmega2560" register use summary:
 x  :   0 y  :   3 z  :   1 r0 :   3 r1 :   3 r2 :   0 r3 :   0 r4 :   0 
-r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   3 r10:   3 r11:   3 r12:   2 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   3 r10:   3 r11:   3 r12:   1 
 r13:   5 r14:   5 r15:   5 r16:   4 r17:   3 r18:   3 r19:   3 r20:   2 
-r21:   2 r22:   2 r23:   2 r24:   3 r25:   3 r26:   3 r27:   3 r28:   1 
+r21:   2 r22:   2 r23:   2 r24:   3 r25:   3 r26:   3 r27:   2 r28:   1 
 r29:   1 r30:   1 r31:   1 
 Registers used: 27 out of 35 (77.1%)
 
 "ATmega2560" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   8 add   :   3 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   7 add   :   3 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   1 brmi  :   0 
@@ -2024,8 +2023,8 @@ Instructions used: 13 out of 116 (11.2%)
 "ATmega2560" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000066     96      6    102  262144   0.0%
-[.dseg] 0x000200 0x000203      0      3      3    8192   0.0%
+[.cseg] 0x000000 0x000064     94      6    100  262144   0.0%
+[.dseg] 0x000200 0x000204      0      4      4    8192   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 
 Assembly complete, 0 errors, 0 warnings

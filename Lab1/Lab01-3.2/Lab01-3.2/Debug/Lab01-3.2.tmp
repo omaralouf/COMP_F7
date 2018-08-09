@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\Debug\Lab01-3.2.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Lab01-3.2.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Lab01-3.2.map</FILE>
+  <FILE>Lab01-3.2.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <int_val><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm</FILE><LINE>19</LINE></int_val>
+  <num_str><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm</FILE><LINE>22</LINE></num_str>
+  <main><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm</FILE><LINE>34</LINE></main>
+  <loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab01-3.2\Lab01-3.2\main.asm</FILE><LINE>84</LINE></loop>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -85,25 +85,14 @@ loop_3:
 	ld a_ij, x+	; load A[i][k] and increment x
 	ld b_ij, y+	; load B[i][k] and increment y
 
-	mul a_ij, b_ij	; multiply a[i][k] * b[k][j]
-	mov r21, r0
-	clr r22			; used for sign extension
-	cp r21, r22	
-	brlt negative	
-	rjmp C_p_e
+	muls a_ij, b_ij	; multiply a[i][k] * b[k][j]
 
-negative:			; used for sign extension on negative numbers 
-	ser r22
-	
 C_p_e:				; calculates the running sum
-	add C_byte0, r21
-	adc C_byte1, r22
+	add C_byte0, r0
+	adc C_byte1, r1
 
 	; Properly increment B 
-	ldi temp, 4		; temp variable equals 4
-	clr r22			; use for sign extension 
-	add yl, temp
-	adc yh, r22		; move y pointer to next position 
+	adiw y, 4	; move y pointer to next position 
 
 	inc char_k
 	cpi char_k, n_max
@@ -113,21 +102,16 @@ C_p_e:				; calculates the running sum
 	st z+, C_byte0
 	st z+, C_byte1
 
-	ldi temp, 24
-	sub yl, temp
-	sbc yh, r22		; set the pointer to point to next column in array B
+	sbiw y, 24	; set the pointer to point to next column in array B
 
 	ldi temp, 5
-	sub xl, temp
-	sbc xh, r22		; move y pointer to previous row 
+	sbiw x, 5
 
 	inc char_j
 	cpi char_j, n_max
 	brlt loop_2
 
-	ldi temp, 5
-	add xl, temp
-	adc xh, r22		; move x pointer to point to next row in A 
+	adiw x, 5	; move x pointer to point to next row in A 
 
 	inc char_i
 	cpi char_i, n_max

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm Thu Aug 16 14:06:45 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm Thu Aug 16 14:23:21 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
@@ -1942,7 +1942,7 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm(8): Incl
 00010d 2c50                      	mov r5, r0
 00010e 2c61                      	mov r6, r1
 00010f 9f38                      	mul a_ij_low, num_high
-000110 0c60                      	add r6,r0 
+000110 0c60                      	add r6,r0
                                  
 000111 925d                      	st x+, r5	; store in data memory 
 000112 926d                      	st x+, r6
@@ -1985,41 +1985,56 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm(8): Incl
                                  loop_2:
 00012b 2722                      	clr char_k		; k = 0
 00012c 2477                      	clr C_byte0
-00012d 2488                      	clr C_byte1		; reset running sum of C 
+00012d 2488                      	clr C_byte1		; reset running sum of C
+00012e 2499                      	clr C_byte2
+00012f 24aa                      	clr C_byte3
                                  
                                  loop_3:
-00012e 913d                      	ld a_ij_low, x+	; load A[i][k] and increment x
-00012f 9159                      	ld b_ij_low, y+	; load B[i][k] and increment y
+000130 913d                      	ld a_ij_low, x+	; load A[i][k] and increment x
+000131 914d                      	ld a_ij_high, x+
+000132 9159                      	ld b_ij_low, y+	; load B[i][k] and increment y
+000133 9169                      	ld b_ij_high, y+
                                  
-000130 0235                      	muls a_ij_low, b_ij_low	; multiply a[i][k] * b[k][j]
+000134 9f35                      	mul a_ij_low, b_ij_low
+000135 0c70                      	add C_byte0, r0
+000136 1c81                      	adc C_byte1, r1
                                  
-                                 C_p_e:				; calculates the running sum
-000131 0c70                      	add C_byte0, r0
-000132 1c81                      	adc C_byte1, r1
+000137 9f36                      	mul a_ij_low, b_ij_high
+000138 0c80                      	add C_byte1, r0
+000139 1c91                      	adc C_byte2, r1
                                  
-                                 	; Properly increment B 
-000133 9624                      	adiw y, 4	; move y pointer to next position 
+00013a 9f45                      	mul a_ij_high, b_ij_low
+00013b 0c80                      	add C_byte1, r0
+00013c 1c91                      	adc C_byte2, r1
                                  
-000134 9523                      	inc char_k
-000135 3025                      	cpi char_k, n_max
-000136 f3bc                      	brlt loop_3
+00013d 9f46                      	mul a_ij_high, b_ij_high
+00013e 0c90                      	add C_byte2, r0
+00013f 1ca1                      	adc C_byte3, r1
+                                 
+000140 9628                      	adiw y, 8	; move y pointer to next position 
+                                 
+000141 9523                      	inc char_k
+000142 3025                      	cpi char_k, n_max
+000143 f364                      	brlt loop_3
                                  
                                  	; store C[i][j]
-000137 9271                      	st z+, C_byte0
-000138 9281                      	st z+, C_byte1
+000144 9271                      	st z+, C_byte0
+000145 9281                      	st z+, C_byte1
+000146 9291                      	st z+, C_byte2
+000147 92a1                      	st z+, C_byte3
                                  
-000139 9768                      	sbiw y, 24	; set the pointer to point to next column in array B
-00013a 9715                      	sbiw x, 5
+000148 97e0                      	sbiw y, 48	; set the pointer to point to next column in array B
+000149 971a                      	sbiw x, 10
                                  
-00013b 9513                      	inc char_j
-00013c 3015                      	cpi char_j, n_max
-00013d f36c                      	brlt loop_2
+00014a 9513                      	inc char_j
+00014b 3015                      	cpi char_j, n_max
+00014c f2f4                      	brlt loop_2
                                  
-00013e 9615                      	adiw x, 5	; move x pointer to point to next row in A 
+00014d 961a                      	adiw x, 10	; move x pointer to point to next row in A 
                                  
-00013f 9503                      	inc char_i
-000140 3005                      	cpi char_i, n_max
-000141 f334                      	brlt second_loop
+00014e 9503                      	inc char_i
+00014f 3005                      	cpi char_i, n_max
+000150 f2bc                      	brlt second_loop
                                  	
                                  loop:
 
@@ -2039,40 +2054,40 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega2560" register use summary:
-x  :   5 y  :   5 z  :   6 r0 :   3 r1 :   2 r2 :   0 r3 :   0 r4 :   0 
-r5 :   3 r6 :   4 r7 :   5 r8 :   5 r9 :   2 r10:   2 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   7 r17:   7 r18:   3 r19:   6 r20:   0 
-r21:   2 r22:   0 r23:   2 r24:   2 r25:   0 r26:   2 r27:   2 r28:   2 
+x  :   6 y  :   6 z  :   8 r0 :   6 r1 :   5 r2 :   0 r3 :   0 r4 :   0 
+r5 :   3 r6 :   4 r7 :   5 r8 :   7 r9 :   7 r10:   5 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:   7 r17:   7 r18:   3 r19:   7 r20:   3 
+r21:   3 r22:   3 r23:   2 r24:   2 r25:   0 r26:   2 r27:   2 r28:   2 
 r29:   2 r30:   2 r31:   2 
-Registers used: 24 out of 35 (68.6%)
+Registers used: 26 out of 35 (74.3%)
 
 "ATmega2560" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   1 add   :   3 adiw  :   2 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   4 add   :   6 adiw  :   2 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   5 brmi  :   0 
 brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :  11 cls   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :  13 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   5 cpse  :   0 dec   :   0 eicall:   0 eijmp :   0 elpm  :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   0 inc   :   5 jmp   :   0 ld    :   2 ldd   :   0 ldi   :  14 
+in    :   0 inc   :   5 jmp   :   0 ld    :   4 ldd   :   0 ldi   :  14 
 lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   3 movw  :   0 
-mul   :   2 muls  :   1 mulsu :   0 neg   :   0 nop   :   0 or    :   0 
+mul   :   6 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   0 
 ori   :   0 out   :   0 pop   :   0 push  :   0 rcall :   0 ret   :   0 
 reti  :   0 rjmp  :   1 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 
 sbi   :   0 sbic  :   0 sbis  :   0 sbiw  :   2 sbr   :   0 sbrc  :   0 
 sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 sen   :   0 ser   :   0 
 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
-st    :  10 std   :   0 sts   :   0 sub   :   0 subi  :   0 swap  :   0 
+st    :  12 std   :   0 sts   :   0 sub   :   0 subi  :   0 swap  :   0 
 tst   :   0 wdr   :   0 
-Instructions used: 15 out of 116 (12.9%)
+Instructions used: 14 out of 116 (12.1%)
 
 "ATmega2560" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000200 0x000286    134      0    134  262144   0.1%
+[.cseg] 0x000200 0x0002a4    164      0    164  262144   0.1%
 [.dseg] 0x000200 0x0002c8      0    200    200    8192   2.4%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 

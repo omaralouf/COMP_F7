@@ -54,7 +54,7 @@ loop_1:
 	mov r5, r0
 	mov r6, r1
 	mul a_ij_low, num_high
-	add r6,r0 
+	add r6,r0
 
 	st x+, r5	; store in data memory 
 	st x+, r6
@@ -97,20 +97,33 @@ second_loop:
 loop_2:
 	clr char_k		; k = 0
 	clr C_byte0
-	clr C_byte1		; reset running sum of C 
+	clr C_byte1		; reset running sum of C
+	clr C_byte2
+	clr C_byte3
 
 loop_3:
 	ld a_ij_low, x+	; load A[i][k] and increment x
+	ld a_ij_high, x+
 	ld b_ij_low, y+	; load B[i][k] and increment y
+	ld b_ij_high, y+
 
-	muls a_ij_low, b_ij_low	; multiply a[i][k] * b[k][j]
-
-C_p_e:				; calculates the running sum
+	mul a_ij_low, b_ij_low
 	add C_byte0, r0
 	adc C_byte1, r1
 
-	; Properly increment B 
-	adiw y, 4	; move y pointer to next position 
+	mul a_ij_low, b_ij_high
+	add C_byte1, r0
+	adc C_byte2, r1
+
+	mul a_ij_high, b_ij_low
+	add C_byte1, r0
+	adc C_byte2, r1
+
+	mul a_ij_high, b_ij_high
+	add C_byte2, r0
+	adc C_byte3, r1
+
+	adiw y, 8	; move y pointer to next position 
 
 	inc char_k
 	cpi char_k, n_max
@@ -119,15 +132,17 @@ C_p_e:				; calculates the running sum
 	; store C[i][j]
 	st z+, C_byte0
 	st z+, C_byte1
+	st z+, C_byte2
+	st z+, C_byte3
 
-	sbiw y, 24	; set the pointer to point to next column in array B
-	sbiw x, 5
+	sbiw y, 48	; set the pointer to point to next column in array B
+	sbiw x, 10
 
 	inc char_j
 	cpi char_j, n_max
 	brlt loop_2
 
-	adiw x, 5	; move x pointer to point to next row in A 
+	adiw x, 10	; move x pointer to point to next row in A 
 
 	inc char_i
 	cpi char_i, n_max

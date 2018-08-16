@@ -29,8 +29,7 @@
   <loop_1><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>49</LINE></loop_1>
   <second_loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>91</LINE></second_loop>
   <loop_2><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>97</LINE></loop_2>
-  <loop_3><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>102</LINE></loop_3>
-  <C_p_e><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>108</LINE></C_p_e>
-  <loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>136</LINE></loop>
+  <loop_3><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>104</LINE></loop_3>
+  <loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\lab01-3.5\lab01-3.5\main.asm</FILE><LINE>151</LINE></loop>
  </LABELS>
 </ASSEMBLER_INFO>

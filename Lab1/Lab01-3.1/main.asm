@@ -37,3 +37,6 @@ a_soh_b:			; a = a-b
 
 end:
 	rjmp end
+
+; brsh/brlo for unsigned
+; brge/brlt for signed

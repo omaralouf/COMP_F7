@@ -19,7 +19,7 @@
 int_val: .byte 4		; allocate 3 bytes of data memory to store the integer 
 
 .cseg 
-num_str: .db "325658"	; define number string "325658" which is stored in program memory 
+num_str: .db "999999"	; define number string "325658" which is stored in program memory 
 
 ldi zl, low(num_str<<1)		; low byte of the address of "325658"
 ldi zh, high(num_str<<1)	; high byte of "325658"
@@ -83,3 +83,5 @@ main:
 loop:
 	rjmp loop
 
+
+; multiply by 10 = 2^3 + 2^1 = 3x(shift left) + 1x(shift left)

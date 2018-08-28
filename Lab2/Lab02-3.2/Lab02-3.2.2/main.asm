@@ -6,7 +6,7 @@
 
 .include "m2560def.inc" 
 
-.macro multo	; macro used to multiply two byte number by on byte
+.macro multo	; macro used to multiply two byte number by one byte
 	mul @1, @2	; @0, @1 are first two bytes
 	mov @5, r0	; @ 2 is single byte 
 	mov @4, r1

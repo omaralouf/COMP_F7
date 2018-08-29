@@ -7,10 +7,10 @@
 .def a=r17
 .def b=r18
 .def c=r19
-.def cou=r22
+.def cou=r22		; final result
 
 .dseg
-counter: .byte 1
+counter: .byte 1	; global variable
 
 .cseg
 ldi n,8
@@ -26,7 +26,6 @@ clr r20
 clr cou
 st x,r20
 ldi r21,1
-clr r22		; final result
 
 main:
 	ldi yl,low(RAMEND-4)	; start address at 4 bytes before end of SRAM
@@ -50,7 +49,7 @@ end:
 move:								
 	push r28		; Save r28 and r29 on top of the stack
 	push r29		
-	in r28,SPL
+	in r28,SPL		; Stack pointer (high)
 	in r29,SPH
 	sbiw r28,4		; Compute the stack frame top for move
 					; Notice that 4 bytes are needed to store

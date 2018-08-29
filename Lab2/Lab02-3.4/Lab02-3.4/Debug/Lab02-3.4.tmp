@@ -1,0 +1,37 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\Debug\Lab02-3.4.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Lab02-3.4.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Lab02-3.4.map</FILE>
+  <FILE>Lab02-3.4.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <test_array><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>25</LINE></test_array>
+  <quicksort><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>58</LINE></quicksort>
+  <end_loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>55</LINE></end_loop>
+  <if><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>75</LINE></if>
+  <epilogue><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>96</LINE></epilogue>
+  <partition><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>107</LINE></partition>
+  <while_1><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>140</LINE></while_1>
+  <do_1><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>142</LINE></do_1>
+  <do_2><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>160</LINE></do_2>
+  <i_s_h><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>175</LINE></i_s_h>
+  <swap_nums><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab02-3.4\Lab02-3.4\main.asm</FILE><LINE>190</LINE></swap_nums>
+ </LABELS>
+</ASSEMBLER_INFO>

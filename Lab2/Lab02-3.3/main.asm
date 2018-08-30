@@ -7,24 +7,27 @@
 .def a=r17
 .def b=r18
 .def c=r19
-.def cou=r22		; final result
+.def cou_l=r22		; final result = (2^n)-1
+.def cou_h=r23
 
 .dseg
-counter: .byte 1	; global variable
+counter: .byte 2	; global variable
 
 .cseg
-ldi n,8
+ldi n,15
 ldi a,1
 ldi b,3
 ldi c,2
 
 ldi xl,low(counter)
 ldi xh,high(counter)
-ldi cou,low(counter)
+ldi cou_l,low(counter)
+ldi cou_h,high(counter)
 
 clr r20
-clr cou
 st x,r20
+clr cou_l
+clr cou_h
 ldi r21,1
 
 main:
@@ -51,7 +54,7 @@ move:
 	push r29		
 	in r28,SPL		; Stack pointer (high)
 	in r29,SPH
-	sbiw r28,4		; Compute the stack frame top for move
+	sbiw r29:r28,4	; Compute the stack frame top for move
 					; Notice that 4 bytes are needed to store
 					; the actual parameters n, a, b, c
 
@@ -63,15 +66,26 @@ move:
 	std y+2,c
 	std y+1,b
 
+	 // ignore - this was wrong in our lab
+	/*; if statement 
+	clr r0		; sign extension
+	cp n,r21
+	cpc r22,r0	
+	brne else	; if n != 1, go to else
+	*/
+	
 	; if statement
 	cp n,r21
-	brne else	; if n != 1, go to else
+	brne else
 	
-	add cou,r21
-	st x,cou	; st same as std, but for index space x
+	add cou_l,r21
+	adc cou_h,r22
+	st x+,cou_l		; st same as std, but for index space x 
+	st x+,cou_h
+	sbiw x,2
 
 epilogue:
-	adiw r28,4		; Deallocate the stack frame
+	adiw y,4	; Deallocate the stack frame ; y=r29:r28
 	out SPH,r29
 	out SPL,r28
 	pop r29			; Restore Y 
@@ -101,3 +115,7 @@ else:
 	rcall move
 
 	rjmp epilogue	; go to epilogue
+
+	; 26, 27 x // 28, 29 y // 30, 31 z
+
+	

@@ -6,32 +6,35 @@
 
 .cseg
 
-ldi r25,low(3217)	; dividend (according to specs)
+ldi r25,low(64501)	; dividend (according to specs)
 mov r15,r25
 clr r25
-ldi r16,high(3217) 
-ldi r17,low(16)		; divisor
-ldi r18,high(16)
+ldi r16,high(64501) 
+ldi r17,low(6000)	; divisor
+ldi r18,high(6000)
 ldi r19,0			; quotient
 ldi r20,0
+clr r21
+clr r22
 ldi r23,1			; bit_position (low and high)
 ldi r24,0
 
 while1:
 	cp r15,r17
 	cpc r16,r18
-	brlo while2 ; if the dividend is lower than or equal to the divisor (basically skips first while)
+	brlo while2		; if the dividend is lower than or equal to the divisor (basically skips first while)
 	breq while2
 
-	mov r21,r17
+	;mov r21,r17
 	mov r22,r18
 
 	; avoid overflow
-	andi r21,low(0x8000)
-	andi r22,high(0x8000)
-	add  r21,r22
-	cpi r21,0
-	brlo while2
+	//ldi r21,high(0x8000)
+	//andi r22,high(0x8000)	; purely checking the highest bit in the high byte
+	//cp r22, r21
+	sbrc r22,7
+	//breq while2	; if 0 is lower than r22
+	rjmp while2	; rjmp since no compare
 
 	; shift one bit left
 	lsl r17

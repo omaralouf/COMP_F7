@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega2560"</DEVICE>
- <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\Debug\Lab2A.obj</FILE>
+  <FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\Debug\Lab2A.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>Lab2A.hex</FILE>
@@ -22,9 +22,9 @@
   <FILE>Lab2A.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <while1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\main.asm</FILE><LINE>87</LINE></while1>
-  <while2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\main.asm</FILE><LINE>112</LINE></while2>
-  <end><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\main.asm</FILE><LINE>140</LINE></end>
-  <shiftback><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab2\Lab2A\main.asm</FILE><LINE>130</LINE></shiftback>
+  <while1><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm</FILE><LINE>20</LINE></while1>
+  <while2><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm</FILE><LINE>45</LINE></while2>
+  <end><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm</FILE><LINE>73</LINE></end>
+  <shiftback><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm</FILE><LINE>63</LINE></shiftback>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm Thu Aug 30 13:47:36 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.2\Lab03-3.2\main.asm Thu Sep 06 16:04:07 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1359,7 +1359,22 @@ EQU  URXC3addr    0000006c
 EQU  UDRE3addr    0000006e
 EQU  UTXC3addr    00000070
 EQU  INT_VECTORS_SIZE 00000072
-CSEG while1       0000000a
-CSEG while2       0000001a
-CSEG end          0000002a
-CSEG shiftback    00000025
+DEF  count        r16
+DEF  i            r21
+DEF  j            r18
+DEF  k            r19
+DEF  n            r20
+CSEG switch0      00000007
+CSEG switch1      00000025
+CSEG first_delay0@buff@3739 0000000d
+CSEG second_delay0@buff@3739 00000011
+CSEG third_delay0@buff@3739 00000015
+CSEG fourth_delay0@buff@3739 00000019
+CSEG finish_delay0@buff@3739 0000001e
+CSEG con_1        00000022
+CSEG first_delay0@buff@3781 0000002b
+CSEG second_delay0@buff@3781 0000002f
+CSEG third_delay0@buff@3781 00000033
+CSEG fourth_delay0@buff@3781 00000037
+CSEG finish_delay0@buff@3781 0000003c
+CSEG con_2        00000040

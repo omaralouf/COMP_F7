@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm Thu Aug 30 13:47:36 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.2\Lab03-3.2\main.asm Thu Sep 06 16:04:07 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm(5): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.2\Lab03-3.2\main.asm(10): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm(5): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.2\Lab03-3.2\main.asm(10): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
                                  
-                                 ; Lab2A.asm
+                                 ;
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega2560.xml **********
                                  ;*************************************************************************
@@ -1844,8 +1844,13 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm(5): Including f
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ; Author : Omar Al-Ouf
-                                 ; Email: o.al-ouf@unsw.edu.au
+                                 ; LED.asm
+                                 ;
+                                 ; Created: 9/6/2018 1:52:00 PM
+                                 ; Author : balabi
+                                 ;
+                                 
+                                 
                                  
                                  .include "m2560def.inc"
                                  
@@ -1891,75 +1896,126 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab2\Lab02-3.1\main.asm(5): Including f
                                  #endif  /* _M2560DEF_INC_ */
                                  
                                  ; ***** END OF FILE ******************************************************
+                                 .def count = r16	; holds current number
+                                 .def i = r21
+                                 .def j = r18
+                                 .def k = r19
+                                 .def n = r20
+                                 
+                                 
+                                 .macro buff
+                                 	clr i
+                                 	clr j
+                                 	clr k
+                                 	clr n
+                                 first_delay0: 
+                                 	clr j
+                                 	inc i
+                                 	cpi i, 100
+                                 	breq finish_delay0
+                                 second_delay0:
+                                 	clr k
+                                 	inc j
+                                 	cpi j, 50
+                                 	breq first_delay0
+                                 third_delay0:
+                                 	clr n
+                                 	inc k
+                                 	cpi k, 20
+                                 	breq second_delay0
+                                 fourth_delay0:
+                                 	cpi n, 8
+                                 	breq third_delay0
+                                 	nop
+                                 	inc n
+                                 	rjmp fourth_delay0
+                                 finish_delay0:
+                                 clr i
+                                 clr j
+                                 clr k
+                                 clr n
+                                 .endmacro
                                  
                                  .cseg
+                                 .org 0x0
                                  
-000000 e991                      ldi r25,low(3217)	; dividend (according to specs)
-000001 2ef9                      mov r15,r25
-000002 2799                      clr r25
-000003 e00c                      ldi r16,high(3217) 
-000004 e110                      ldi r17,low(16)		; divisor
-000005 e020                      ldi r18,high(16)
-000006 e030                      ldi r19,0			; quotient
-000007 e040                      ldi r20,0
-000008 e071                      ldi r23,1			; bit_position (low and high)
-000009 e080                      ldi r24,0
+000000 e00f                      ldi r16, 0b1111		; stores current number
+000001 ef1f                      ser r17
                                  
-                                 while1:
-00000a 16f1                      	cp r15,r17
-00000b 0702                      	cpc r16,r18
-00000c f068                      	brlo while2 ; if the dividend is lower than or equal to the divisor (basically skips first while)
-00000d f061                      	breq while2
+000002 b908                      out PORTC, count ; Write ones to all the LEDs
+000003 b917                      out DDRC, r17 ; PORTC is all outputs
+000004 b91b                      out PORTD, r17 ; Enable pull-up resistors on PORTD
+000005 2711                      clr r17
+000006 b91a                      out DDRD, r17 ; PORTD is all inputs
                                  
-00000e 2f51                      	mov r21,r17
-00000f 2f62                      	mov r22,r18
+                                 switch0:
+000007 9948                      	sbic PIND, 0 ; Skip the next instruction if PB0 is pushed
+000008 c01c                      	rjmp switch1 ; If not pushed, check the other switch
+000009 2755
+00000a 2722
+00000b 2733
+00000c 2744
+00000d 2722
+00000e 9553
+00000f 3654
+000010 f069
+000011 2733
+000012 9523
+000013 3322
+000014 f3c1
+000015 2744
+000016 9533
+000017 3134
+000018 f3c1
+000019 3048
+00001a f3d1
+00001b 0000
+00001c 9543
+00001d cffb
+00001e 2755
+00001f 2722
+000020 2733
+000021 2744                      	buff
                                  
-                                 	; avoid overflow
-000010 7050                      	andi r21,low(0x8000)
-000011 7860                      	andi r22,high(0x8000)
-000012 0f56                      	add  r21,r22
-000013 3050                      	cpi r21,0
-000014 f028                      	brlo while2
+                                 con_1:
+000022 950a                      	dec count	; decrement
+000023 700f                      	andi count, 0b1111; and to get only 4 bit representation 
+000024 b908                      	out PORTC, count
                                  
-                                 	; shift one bit left
-000015 0f11                      	lsl r17
-000016 1f22                      	rol r18
+                                 switch1:
+000025 9949                      	sbic PIND, 1 ; Skip the next instruction if PB1 is pushed
+000026 cfe0                      	rjmp switch0 ; If not pushed, check the other switch
+000027 2755
+000028 2722
+000029 2733
+00002a 2744
+00002b 2722
+00002c 9553
+00002d 3654
+00002e f069
+00002f 2733
+000030 9523
+000031 3322
+000032 f3c1
+000033 2744
+000034 9533
+000035 3134
+000036 f3c1
+000037 3048
+000038 f3d1
+000039 0000
+00003a 9543
+00003b cffb
+00003c 2755
+00003d 2722
+00003e 2733
+00003f 2744                      	buff
                                  
-000017 0f77                      	lsl r23
-000018 1f88                      	rol r24
-                                 
-000019 cff0                      	rjmp while1
-                                 
-                                 while2:
-00001a 1577                      	cp r23,r7
-00001b 0587                      	cpc r24,r7
-00001c f068                      	brlo end
-00001d f061                      	breq end		; only continue if bit_position is > 0
-                                 
-00001e 16f1                      	cp r15,r17
-00001f 0702                      	cpc r16,r18
-000020 f020                      	brlo shiftback	; if dividend is lower than divisor, skip this part
-                                 
-                                 	; dividend = dividend - divisor
-000021 1af1                      	sub r15,r17
-000022 0b02                      	sbc r16,r18
-                                 
-                                 	; quotient = quotient + bit_position
-000023 0f37                      	add r19,r23
-000024 1f48                      	adc r20,r24
-                                 
-                                 shiftback:
-                                 	; shift one bit right
-000025 9526                      	lsr r18
-000026 9517                      	ror r17
-                                 
-000027 9586                      	lsr r24
-000028 9577                      	ror r23
-                                 
-000029 cff0                      	rjmp while2
-                                 
-                                 end:
-00002a cfff                      	rjmp end
+                                 con_2:
+000040 9503                      	inc count ; Store PATTERN2 to the LEDs if the switch was pushed
+000041 700f                      	andi count, 0b1111
+000042 b908                      	out PORTC, count
+000043 cfc3                      	rjmp switch0 ; Now check PB0 again
 
 
 RESOURCE USE INFORMATION
@@ -1978,39 +2034,39 @@ counted separately from r26..r31 here.
 
 "ATmega2560" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
-r5 :   0 r6 :   0 r7 :   2 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   4 r16:   4 r17:   7 r18:   7 r19:   2 r20:   2 
-r21:   4 r22:   3 r23:   5 r24:   5 r25:   3 r26:   0 r27:   0 r28:   0 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:   8 r17:   5 r18:  10 r19:  10 r20:  10 
+r21:   8 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 12 out of 35 (34.3%)
+Registers used: 6 out of 35 (17.1%)
 
 "ATmega2560" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   1 add   :   2 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   2 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   2 brge  :   0 brhc  :   0 
-brhs  :   0 brid  :   0 brie  :   0 brlo  :   4 brlt  :   0 brmi  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   8 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   1 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   3 cpc   :   3 
-cpi   :   1 cpse  :   0 dec   :   0 eicall:   0 eijmp :   0 elpm  :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :  23 cls   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
+cpi   :   8 cpse  :   0 dec   :   1 eicall:   0 eijmp :   0 elpm  :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   0 inc   :   0 jmp   :   0 ld    :   0 ldd   :   0 ldi   :   8 
-lds   :   0 lpm   :   0 lsl   :   2 lsr   :   2 mov   :   3 movw  :   0 
-mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   0 
-ori   :   0 out   :   0 pop   :   0 push  :   0 rcall :   0 ret   :   0 
-reti  :   0 rjmp  :   3 rol   :   2 ror   :   2 sbc   :   1 sbci  :   0 
-sbi   :   0 sbic  :   0 sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 
-sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 sen   :   0 ser   :   0 
+in    :   0 inc   :   9 jmp   :   0 ld    :   0 ldd   :   0 ldi   :   1 
+lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   0 movw  :   0 
+mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   2 or    :   0 
+ori   :   0 out   :   6 pop   :   0 push  :   0 rcall :   0 ret   :   0 
+reti  :   0 rjmp  :   5 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 
+sbi   :   0 sbic  :   2 sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 
+sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 sen   :   0 ser   :   1 
 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
-st    :   0 std   :   0 sts   :   0 sub   :   1 subi  :   0 swap  :   0 
+st    :   0 std   :   0 sts   :   0 sub   :   0 subi  :   0 swap  :   0 
 tst   :   0 wdr   :   0 
-Instructions used: 18 out of 116 (15.5%)
+Instructions used: 12 out of 116 (10.3%)
 
 "ATmega2560" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000056     86      0     86  262144   0.0%
+[.cseg] 0x000000 0x000088    136      0    136  262144   0.1%
 [.dseg] 0x000200 0x000200      0      0      0    8192   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 

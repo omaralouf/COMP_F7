@@ -1,0 +1,39 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\Debug\Keypad.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Keypad.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Keypad.map</FILE>
+  <FILE>Keypad.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>24</LINE></RESET>
+  <main><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>35</LINE></main>
+  <colloop><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>38</LINE></colloop>
+  <delay><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>43</LINE></delay>
+  <nextcol><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>63</LINE></nextcol>
+  <rowloop><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>52</LINE></rowloop>
+  <skipconv><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>59</LINE></skipconv>
+  <convert><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>81</LINE></convert>
+  <letters><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>94</LINE></letters>
+  <symbols><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>98</LINE></symbols>
+  <convert_end><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>110</LINE></convert_end>
+  <star><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>105</LINE></star>
+  <zero><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\Keypad\main.asm</FILE><LINE>108</LINE></zero>
+ </LABELS>
+</ASSEMBLER_INFO>

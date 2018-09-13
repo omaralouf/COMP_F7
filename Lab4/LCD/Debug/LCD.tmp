@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\Debug\LCD.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>LCD.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>LCD.map</FILE>
+  <FILE>LCD.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>21</LINE></RESET>
+  <lcd_command><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>74</LINE></lcd_command>
+  <lcd_wait><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>104</LINE></lcd_wait>
+  <sleep_5ms><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>142</LINE></sleep_5ms>
+  <sleep_1ms><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>130</LINE></sleep_1ms>
+  <lcd_data><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>87</LINE></lcd_data>
+  <halt><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>55</LINE></halt>
+  <lcd_wait_loop><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>110</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm</FILE><LINE>135</LINE></delayloop_1ms>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -7,42 +7,48 @@
 
 
 .include "m2560def.inc"
-.def i = r18
-.def j = r19
-.def k = r20
-.def n = r21
+.def byte_0 = r18
+.def byte_1 = r19
+.def byte_2= r20
+.def zero = r21
 
 
-.macro delay	; macro for 1 second delay
-	clr i
-	clr j
-	clr k
-	clr n 
-loop_1: 
-	clr j
-	inc i 
-	cpi i, 100
-	breq finish_delay
-loop_2:
-	clr k
-	inc j
-	cpi j, 100
-	breq loop_1
-loop_3:
-	clr n
-	inc k
-	cpi k, 100
-	breq loop_2
-loop_4:
-	cpi n, 16
-	breq loop_3
+.macro delay
+	ldi byte_0, low(999999) ;1 cycle
+	ldi byte_1, high(999999) ;1 cycle
+	ldi byte_2, byte3(999999) ;1 cycle
+	clr zero ;1 cycle
+oneus: 
+	nop ;1 cycle
 	nop
-	inc n
-	rjmp loop_4
-finish_delay:
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	subi byte_0, 1 ;1 cycle
+	sbc byte_1, zero ;1 cycle
+	sbc byte_2, zero ;1 cycle
+	brne oneus ;2 cycles except the last execution which takes 1 cycle 
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
 .endmacro
+
 .cseg 
-.org 0x100
+.org 0x0
 
 clr r16
 ser r17

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm Tue Sep 11 17:09:49 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm Thu Sep 13 13:45:07 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
@@ -1895,85 +1895,100 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm(9): Incl
                                  #endif  /* _M2560DEF_INC_ */
                                  
                                  ; ***** END OF FILE ******************************************************
-                                 .def i = r18
-                                 .def j = r19
-                                 .def k = r20
-                                 .def n = r21
+                                 .def byte_0 = r18
+                                 .def byte_1 = r19
+                                 .def byte_2= r20
+                                 .def zero = r21
                                  
                                  
-                                 .macro delay	; macro for 1 second delay
-                                 	clr i
-                                 	clr j
-                                 	clr k
-                                 	clr n 
-                                 loop_1: 
-                                 	clr j
-                                 	inc i 
-                                 	cpi i, 100
-                                 	breq finish_delay
-                                 loop_2:
-                                 	clr k
-                                 	inc j
-                                 	cpi j, 100
-                                 	breq loop_1
-                                 loop_3:
-                                 	clr n
-                                 	inc k
-                                 	cpi k, 100
-                                 	breq loop_2
-                                 loop_4:
-                                 	cpi n, 16
-                                 	breq loop_3
+                                 .macro delay
+                                 	ldi byte_0, low(999999) ;1 cycle
+                                 	ldi byte_1, high(999999) ;1 cycle
+                                 	ldi byte_2, byte3(999999) ;1 cycle
+                                 	clr zero ;1 cycle
+                                 oneus: 
+                                 	nop ;1 cycle
                                  	nop
-                                 	inc n
-                                 	rjmp loop_4
-                                 finish_delay:
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	subi byte_0, 1 ;1 cycle
+                                 	sbc byte_1, zero ;1 cycle
+                                 	sbc byte_2, zero ;1 cycle
+                                 	brne oneus ;2 cycles except the last execution which takes 1 cycle 
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
+                                 	nop
                                  .endmacro
+                                 
                                  .cseg 
-                                 .org 0x100
+                                 .org 0x0
                                  
-000100 2700                      clr r16
-000101 ef1f                      ser r17
+000000 2700                      clr r16
+000001 ef1f                      ser r17
                                  
-000102 b908                      out PORTC, r16	; start with no LEDs lit 
-000103 b917                      out DDRC, r17	; Port C is all outputs
-000104 e410                      ldi r17, 0b01000000
+000002 b908                      out PORTC, r16	; start with no LEDs lit 
+000003 b917                      out DDRC, r17	; Port C is all outputs
+000004 e410                      ldi r17, 0b01000000
                                  
                                  sec_loop:
-000105 2722
-000106 2733
-000107 2744
-000108 2755
-000109 2733
-00010a 9523
-00010b 3624
-00010c f069
-00010d 2744
-00010e 9533
-00010f 3634
-000110 f3c1
-000111 2755
-000112 9543
-000113 3644
-000114 f3c1
-000115 3150
-000116 f3d1
-000117 0000
-000118 9553
-000119 cffb                      	delay
-00011a 9503                      	inc r16
-00011b 2f60                      	mov r22, r16
-00011c 736f                      	andi r22, 0b00111111
-00011d 336d                      	cpi r22, 61
-00011e f410                      	brsh add_min
+000005 e32f
+000006 e432
+000007 e04f
+000008 2755
+000009 0000
+00000a 0000
+00000b 0000
+00000c 0000
+00000d 0000
+00000e 0000
+00000f 0000
+000010 0000
+000011 0000
+000012 0000
+000013 0000
+000014 5021
+000015 0b35
+000016 0b45
+000017 f789
+000018 0000
+000019 0000
+00001a 0000
+00001b 0000
+00001c 0000
+00001d 0000
+00001e 0000
+00001f 0000
+000020 0000
+000021 0000
+000022 0000                      	delay
+000023 9503                      	inc r16
+000024 2f60                      	mov r22, r16
+000025 736f                      	andi r22, 0b00111111
+000026 336d                      	cpi r22, 61
+000027 f410                      	brsh add_min
                                  LED_out: 
-00011f b908                      	out PORTC, r16	; write out to LEDs
-000120 cfe4                      	rjmp sec_loop
+000028 b908                      	out PORTC, r16	; write out to LEDs
+000029 cfdb                      	rjmp sec_loop
                                  
                                  add_min:
-000121 0f01                      	add r16, r17
-000122 7c00                      	andi r16, 0b11000000
-000123 cffb                      	rjmp LED_out
+00002a 0f01                      	add r16, r17
+00002b 7c00                      	andi r16, 0b11000000
+00002c cffb                      	rjmp LED_out
                                  
                                  
                                  	
@@ -2000,38 +2015,38 @@ counted separately from r26..r31 here.
 "ATmega2560" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   7 r17:   4 r18:   3 r19:   4 r20:   4 
-r21:   4 r22:   3 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r13:   0 r14:   0 r15:   0 r16:   7 r17:   4 r18:   2 r19:   2 r20:   2 
+r21:   3 r22:   3 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
 Registers used: 7 out of 35 (20.0%)
 
 "ATmega2560" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
 andi  :   2 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   4 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   0 brpl  :   0 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   1 brpl  :   0 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   8 cls   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   2 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   5 cpse  :   0 dec   :   0 eicall:   0 eijmp :   0 elpm  :   0 
+cpi   :   1 cpse  :   0 dec   :   0 eicall:   0 eijmp :   0 elpm  :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   0 inc   :   5 jmp   :   0 ld    :   0 ldd   :   0 ldi   :   1 
+in    :   0 inc   :   1 jmp   :   0 ld    :   0 ldd   :   0 ldi   :   4 
 lds   :   0 lpm   :   0 lsl   :   0 lsr   :   0 mov   :   1 movw  :   0 
-mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   1 or    :   0 
+mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :  22 or    :   0 
 ori   :   0 out   :   3 pop   :   0 push  :   0 rcall :   0 ret   :   0 
-reti  :   0 rjmp  :   3 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 
+reti  :   0 rjmp  :   2 rol   :   0 ror   :   0 sbc   :   2 sbci  :   0 
 sbi   :   0 sbic  :   0 sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 
 sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 sen   :   0 ser   :   1 
 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
-st    :   0 std   :   0 sts   :   0 sub   :   0 subi  :   0 swap  :   0 
+st    :   0 std   :   0 sts   :   0 sub   :   0 subi  :   1 swap  :   0 
 tst   :   0 wdr   :   0 
-Instructions used: 13 out of 116 (11.2%)
+Instructions used: 15 out of 116 (12.9%)
 
 "ATmega2560" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000200 0x000248     72      0     72  262144   0.0%
+[.cseg] 0x000000 0x00005a     90      0     90  262144   0.0%
 [.dseg] 0x000200 0x000200      0      0      0    8192   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 

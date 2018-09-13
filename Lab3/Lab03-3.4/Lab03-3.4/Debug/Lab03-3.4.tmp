@@ -22,8 +22,8 @@
   <FILE>Lab03-3.4.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <sec_loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm</FILE><LINE>54</LINE></sec_loop>
-  <add_min><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm</FILE><LINE>65</LINE></add_min>
-  <LED_out><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm</FILE><LINE>61</LINE></LED_out>
+  <sec_loop><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm</FILE><LINE>60</LINE></sec_loop>
+  <add_min><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm</FILE><LINE>71</LINE></add_min>
+  <LED_out><FILE>C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Lab03-3.4\Lab03-3.4\main.asm</FILE><LINE>67</LINE></LED_out>
  </LABELS>
 </ASSEMBLER_INFO>

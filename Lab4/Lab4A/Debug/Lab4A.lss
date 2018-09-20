@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm Thu Sep 20 13:17:55 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm Thu Sep 20 13:23:29 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
@@ -2021,8 +2021,8 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm(2): Including file 
 00006d 9180 0200                 lds r24, TempCounter
 00006f 9190 0201                 lds r25, TempCounter+1
 000071 9601                      adiw r25:r24, 1						; increase the temporary counter by 1
-000072 3884                      cpi r24, low(7812)					; check if r25:r24 = 7812
-000073 e10e                      ldi temp, high(7812)				; 7812 = 106/128
+000072 338d                      cpi r24, low(61)					; check if r25:r24 = 7812
+000073 e000                      ldi temp, high(61)					; 7812 = 106/128
 000074 0790                      cpc r25, temp
 000075 f421                      brne NotSecond
                                  
@@ -2116,8 +2116,8 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm(2): Including file 
                                  
 0000b3 e000                      ldi temp, 0b00000000
 0000b4 bd04                      out TCCR0A, temp
-0000b5 e002                      ldi temp, 0b00000010
-0000b6 bd05                      out TCCR0B, temp					; set prescalar value to 8;
+0000b5 e005                      ldi temp, 0b00000101
+0000b6 bd05                      out TCCR0B, temp					; set prescalar value to 1024;
 0000b7 e001                      ldi temp, 1<<TOIE0					; TOIE0 is the bit number of TOIE which is 0
 0000b8 9300 006e                 sts TIMSK0, temp					; enable Timer0 Overfflow interrupt
 0000ba 9478                      sei									; enable global interrupt

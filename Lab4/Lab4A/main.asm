@@ -105,8 +105,8 @@ push r24							; prologue ends
 lds r24, TempCounter
 lds r25, TempCounter+1
 adiw r25:r24, 1						; increase the temporary counter by 1
-cpi r24, low(7812)					; check if r25:r24 = 7812
-ldi temp, high(7812)				; 7812 = 106/128
+cpi r24, low(61)					; check if r25:r24 = 7812
+ldi temp, high(61)					; 7812 = 106/128
 cpc r25, temp
 brne NotSecond
 
@@ -180,8 +180,8 @@ clear TempCounter					; initialise counter to 0;
 
 ldi temp, 0b00000000
 out TCCR0A, temp
-ldi temp, 0b00000010
-out TCCR0B, temp					; set prescalar value to 8;
+ldi temp, 0b00000101
+out TCCR0B, temp					; set prescalar value to 1024;
 ldi temp, 1<<TOIE0					; TOIE0 is the bit number of TOIE which is 0
 sts TIMSK0, temp					; enable Timer0 Overfflow interrupt
 sei									; enable global interrupt

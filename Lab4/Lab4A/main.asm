@@ -105,8 +105,8 @@ push r24							; prologue ends
 lds r24, TempCounter
 lds r25, TempCounter+1
 adiw r25:r24, 1						; increase the temporary counter by 1
-cpi r24, low(781)					; check if r25:r24 = 7812
-ldi temp, high(781)				; 7812 = 106/128
+cpi r24, low(7812)					; check if r25:r24 = 7812
+ldi temp, high(7812)				; 7812 = 106/128
 cpc r25, temp
 brne NotSecond
 

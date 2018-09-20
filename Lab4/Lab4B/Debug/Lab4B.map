@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4B\main.asm Wed Sep 12 15:39:05 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4B\main.asm Thu Sep 20 13:17:52 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1359,4 +1359,47 @@ EQU  URXC3addr    0000006c
 EQU  UDRE3addr    0000006e
 EQU  UTXC3addr    00000070
 EQU  INT_VECTORS_SIZE 00000072
-CSEG start        00000000
+DEF  flag         r15
+DEF  temp         r16
+DEF  row          r17
+DEF  col          r18
+DEF  mask         r19
+DEF  temp2        r20
+DEF  nletters     r21
+DEF  lcd_temp     r22
+EQU  PORTLDIR     000000f0
+EQU  INITCOLMASK  000000ef
+EQU  INITROWMASK  00000001
+EQU  ROWMASK      0000000f
+EQU  LCD_RS       00000007
+EQU  LCD_E        00000006
+EQU  LCD_RW       00000005
+EQU  LCD_BE       00000004
+EQU  HOB_LABEL    00000020
+EQU  HOB_NUM      00000030
+EQU  HOB_CHAR     00000040
+CSEG RESET        00000072
+CSEG lcd_command  000000ff
+CSEG lcd_wait     00000119
+CSEG sleep_5ms    00000135
+CSEG sleep_1ms    0000012c
+CSEG main         000000a5
+CSEG clear_display 0000009b
+CSEG end_clear    000000a8
+CSEG colloop      000000aa
+CSEG delay        000000ad
+CSEG nextcol      000000c0
+CSEG rowloop      000000b6
+CSEG skipconv     000000bc
+CSEG convert      000000c7
+CSEG letters      000000d5
+CSEG symbols      000000dc
+CSEG convert_end  000000f2
+CSEG star         000000e7
+CSEG zero         000000ee
+CSEG lcd_data     0000010a
+CSEG preserve     000000f9
+CSEG lcd_wait_loop 0000011e
+EQU  F_CPU        00f42400
+EQU  DELAY_1MS    00000f9c
+CSEG delayloop_1ms 00000130

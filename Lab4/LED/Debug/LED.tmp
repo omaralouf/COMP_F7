@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega2560"</DEVICE>
- <WORKING_DIR>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LED\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LED\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LED\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LED\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LED\Debug\LED.obj</FILE>
+  <FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LED\Debug\LED.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>LED.hex</FILE>
@@ -22,7 +22,7 @@
   <FILE>LED.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <switch0><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LED\main.asm</FILE><LINE>20</LINE></switch0>
-  <switch1><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LED\main.asm</FILE><LINE>25</LINE></switch1>
+  <switch0><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LED\main.asm</FILE><LINE>20</LINE></switch0>
+  <switch1><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LED\main.asm</FILE><LINE>25</LINE></switch1>
  </LABELS>
 </ASSEMBLER_INFO>

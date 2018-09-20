@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega2560"</DEVICE>
- <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4C\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4C\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4C\Debug\Lab4C.obj</FILE>
+  <FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\Debug\Lab4C.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>Lab4C.hex</FILE>
@@ -22,6 +22,43 @@
   <FILE>Lab4C.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <start><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4C\main.asm</FILE><LINE>10</LINE></start>
+  <fir_num><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>35</LINE></fir_num>
+  <sec_num><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>36</LINE></sec_num>
+  <result><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>37</LINE></result>
+  <RESET><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>136</LINE></RESET>
+  <lcd_command><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>503</LINE></lcd_command>
+  <lcd_wait><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>533</LINE></lcd_wait>
+  <sleep_5ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>571</LINE></sleep_5ms>
+  <sleep_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>559</LINE></sleep_1ms>
+  <main><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>179</LINE></main>
+  <colloop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>182</LINE></colloop>
+  <delay><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>187</LINE></delay>
+  <nextcol><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>208</LINE></nextcol>
+  <rowloop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>196</LINE></rowloop>
+  <skipconv><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>204</LINE></skipconv>
+  <convert><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>227</LINE></convert>
+  <letters><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>260</LINE></letters>
+  <symbols><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>255</LINE></symbols>
+  <second_number><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>252</LINE></second_number>
+  <convert_end><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>316</LINE></convert_end>
+  <zero><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>301</LINE></zero>
+  <a_plus><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>272</LINE></a_plus>
+  <b_minus><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>282</LINE></b_minus>
+  <c_equal><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>293</LINE></c_equal>
+  <calculation><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>329</LINE></calculation>
+  <next_line><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>473</LINE></next_line>
+  <lcd_data><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>516</LINE></lcd_data>
+  <preserve><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>321</LINE></preserve>
+  <invalid><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>379</LINE></invalid>
+  <plus><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>340</LINE></plus>
+  <minus><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>360</LINE></minus>
+  <end_calculation><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>441</LINE></end_calculation>
+  <loop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>579</LINE></loop>
+  <print_result><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>450</LINE></print_result>
+  <print_num><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>461</LINE></print_num>
+  <go_next><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>481</LINE></go_next>
+  <go_first><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>486</LINE></go_first>
+  <lcd_wait_loop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>539</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm</FILE><LINE>564</LINE></delayloop_1ms>
  </LABELS>
 </ASSEMBLER_INFO>

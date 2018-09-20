@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4A\main.asm Thu Sep 13 14:49:55 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm Thu Sep 20 13:17:55 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4A\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4A\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
                                  
                                  
                                  
@@ -2021,8 +2021,8 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab4\Lab4A\main.asm(2): Including file
 00006d 9180 0200                 lds r24, TempCounter
 00006f 9190 0201                 lds r25, TempCounter+1
 000071 9601                      adiw r25:r24, 1						; increase the temporary counter by 1
-000072 308d                      cpi r24, low(781)					; check if r25:r24 = 7812
-000073 e003                      ldi temp, high(781)				; 7812 = 106/128
+000072 3884                      cpi r24, low(7812)					; check if r25:r24 = 7812
+000073 e10e                      ldi temp, high(7812)				; 7812 = 106/128
 000074 0790                      cpc r25, temp
 000075 f421                      brne NotSecond
                                  

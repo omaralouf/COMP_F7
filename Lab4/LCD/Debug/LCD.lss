@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm Thu Sep 06 16:47:38 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LCD\main.asm Thu Sep 20 13:17:51 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LCD\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\LCD\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
                                  
                                  ; Board settings: 1. Connect LCD data pins D0-D7 to PORTF0-7.
                                  

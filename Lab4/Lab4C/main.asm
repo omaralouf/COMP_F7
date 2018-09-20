@@ -278,7 +278,7 @@ letters:
 	breq c_equal
 	ret
 
-	a_plus:
+a_plus:
 	ldi temp2,1
 	mov inv,temp2
 	ldi lcd_result, 13; else if A, load with 13 to make it '-' 
@@ -288,7 +288,7 @@ letters:
 	ldi num2,1
 	jmp convert_end
 
-	b_minus:
+b_minus:
 	ldi temp2,1
 	mov inv,temp2
 	ldi lcd_result, 11
@@ -298,8 +298,7 @@ letters:
 	ldi num2,1
 	jmp convert_end
 
-
-	c_equal:
+c_equal:
 	ldi lcd_result, 13
 	ldi high_order_bit, HOB_NUM; need 0011 high nibble for '='
 	or lcd_result, high_order_bit; OR the high order bit with the value for outputting to lcd.
@@ -307,7 +306,7 @@ letters:
 	jmp calculation
 	
 
-	zero:
+zero:
 	ldi temp2,0
 	mov inv,temp2
 	clr temp ; set to zero
@@ -393,7 +392,9 @@ invalid:
 	do_lcd_data_k '='
 	inc nletters
 	rcall next_line
-	do_lcd_data_k 'i'
+	do_lcd_data_k 'I'
+	inc nletters
+	do_lcd_data_k 'n'
 	inc nletters
 	rcall next_line
 	do_lcd_data_k 'c'
@@ -415,6 +416,18 @@ invalid:
 	inc nletters
 	rcall next_line
 	do_lcd_data_k 't'
+	inc nletters
+	rcall next_line
+	do_lcd_data_k ' '
+	inc nletters
+	rcall next_line
+	do_lcd_data_k ' '
+	inc nletters
+	rcall next_line
+	do_lcd_data_k ' '
+	inc nletters
+	rcall next_line
+	do_lcd_data_k ' '
 	inc nletters
 	rcall next_line
 	do_lcd_data_k 'e'

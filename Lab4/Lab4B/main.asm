@@ -110,8 +110,10 @@ colloop:
 
 delay:
 	dec temp
+	nop
+	nop
 	brne delay
-	LDS temp, PINL ; read PORTL. Cannot use in 
+	LDS temp, PINL ; read PORTL (keypad)
 	andi temp, ROWMASK ; read only the row bits
 	cpi temp, 0xF ; check if any rows are grounded
 	breq nextcol ; if not go to the next column
@@ -145,11 +147,11 @@ nextcol:
 	; pull-up resistors
 	inc col ; increment column value
 	jmp colloop ; and check the next column
+
 	; convert function converts the row and column given to a
 	; binary number and also outputs the value to PORTC.
 	; Inputs come from registers row and col and output is in
 	; temp.
-
 convert:
 	cpi col, 3 ; if column is 3 we have a letter
 	breq letters
@@ -171,7 +173,6 @@ letters:
 	ldi temp, 0x1
 	add temp, row ; increment from 0xA by the row value
 	mov lcd_temp, temp
-	;subi lcd_temp, 9; subtract 9 to get the right LCD code
 	ldi temp, HOB_CHAR
 	or lcd_temp, temp; OR the high order bit with the value for outputting to lcd.
 	jmp convert_end
@@ -203,7 +204,7 @@ zero:
 	or lcd_temp, temp
 
 convert_end:
-	LDS temp, PINL ; read PORTL. Cannot use in 
+	LDS temp, PINL ; read PORTL
 	mov flag, temp
 	;out PORTC, temp ; write value to PORTC
 	do_lcd_data lcd_temp; output the value to the LCD
@@ -211,7 +212,7 @@ convert_end:
 	
 preserve:
 	rcall sleep_5ms
-	LDS temp, PINL ; read PORTL. Cannot use in 
+	LDS temp, PINL ; read PORTL
 	cp temp, flag
 	breq preserve
 	ret ; return to caller

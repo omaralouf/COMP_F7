@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm Thu Sep 20 13:23:26 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm Thu Oct 04 14:16:03 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1390,10 +1390,10 @@ DSEG fir_num      00000200
 DSEG sec_num      00000202
 DSEG result       00000204
 CSEG RESET        00000072
-CSEG lcd_command  00000235
-CSEG lcd_wait     0000024f
-CSEG sleep_5ms    0000026b
-CSEG sleep_1ms    00000262
+CSEG lcd_command  0000023a
+CSEG lcd_wait     00000254
+CSEG sleep_5ms    00000270
+CSEG sleep_1ms    00000267
 CSEG main         000000a4
 CSEG colloop      000000a6
 CSEG delay        000000a9
@@ -1410,37 +1410,37 @@ CSEG a_plus       00000103
 CSEG b_minus      0000010c
 CSEG c_equal      00000115
 CSEG calculation  00000142
-CSEG next_line    00000221
-CSEG lcd_data     00000240
+CSEG next_line    00000226
+CSEG lcd_data     00000245
 CSEG preserve     0000013b
 CSEG invalid      0000016f
 CSEG plus         0000014d
 CSEG minus        0000015e
-CSEG end_calculation 000001cf
-CSEG loop         00000271
-CSEG print_result 000001d4
-CSEG no_skip1@print_reg@4328 000001db
-CSEG print_num    00000218
-CSEG no_skip2@print_reg@4328 000001de
-CSEG start_print@print_reg@4328 000001e1
-CSEG loop1@print_reg@4328 000001e5
-CSEG start_loop2@print_reg@4328 000001ec
-CSEG loop2@print_reg@4328 000001ef
-CSEG loop3@print_reg@4328 000001f6
-CSEG no_skip1@print_reg@4372 000001fa
-CSEG no_skip2@print_reg@4372 000001fd
-CSEG start_print@print_reg@4372 00000200
-CSEG loop1@print_reg@4372 00000204
-CSEG start_loop2@print_reg@4372 0000020b
-CSEG loop2@print_reg@4372 0000020e
-CSEG loop3@print_reg@4372 00000215
-CSEG go_next      00000228
-CSEG go_first     0000022e
+CSEG end_calculation 000001d4
+CSEG loop         00000276
+CSEG print_result 000001d9
+CSEG no_skip1@print_reg@4338 000001e0
+CSEG print_num    0000021d
+CSEG no_skip2@print_reg@4338 000001e3
+CSEG start_print@print_reg@4338 000001e6
+CSEG loop1@print_reg@4338 000001ea
+CSEG start_loop2@print_reg@4338 000001f1
+CSEG loop2@print_reg@4338 000001f4
+CSEG loop3@print_reg@4338 000001fb
+CSEG no_skip1@print_reg@4385 000001ff
+CSEG no_skip2@print_reg@4385 00000202
+CSEG start_print@print_reg@4385 00000205
+CSEG loop1@print_reg@4385 00000209
+CSEG start_loop2@print_reg@4385 00000210
+CSEG loop2@print_reg@4385 00000213
+CSEG loop3@print_reg@4385 0000021a
+CSEG go_next      0000022d
+CSEG go_first     00000233
 EQU  LCD_RS       00000007
 EQU  LCD_RW       00000005
 EQU  LCD_E        00000006
 EQU  LCD_BE       00000004
-CSEG lcd_wait_loop 00000254
+CSEG lcd_wait_loop 00000259
 EQU  F_CPU        00f42400
 EQU  DELAY_1MS    00000f9c
-CSEG delayloop_1ms 00000266
+CSEG delayloop_1ms 0000026b

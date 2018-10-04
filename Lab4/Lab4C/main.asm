@@ -1,3 +1,5 @@
+; Lab4C.asm
+; Authors : Omar Al-Ouf & Ihor Balaban
 
 .include "m2560def.inc"
 
@@ -48,7 +50,6 @@ jmp RESET
 	rcall lcd_wait
 .endmacro
 
-
 .macro do_lcd_data_k
 	ldi r16, @0
 	rcall lcd_data
@@ -60,169 +61,173 @@ jmp RESET
 	rcall lcd_data
 	rcall lcd_wait
 .endmacro
+
 .macro lcd_set
-sbi PORTA, @0
+	sbi PORTA, @0
 .endmacro
 
 .macro lcd_clr
-cbi PORTA, @0
+	cbi PORTA, @0
 .endmacro
 
 .macro x10_add
-ldi r30,low(@0)
-ldi r31,high(@0)
-ld a,Z
-ldd b,Z+1
-ldi temp2,10
-mul a,c
-mov i,r0
-mov j,r1
-mul b,c
-adc j,r0
+	ldi r30,low(@0)
+	ldi r31,high(@0)
+	ld a,Z
+	ldd b,Z+1
+	ldi temp2,10
+	mul a,c
+	mov i,r0
+	mov j,r1
+	mul b,c
+	adc j,r0
 
-clr temp2
-add i,@1
-adc j,c
-st Z,i
-std Z+1,j 
+	clr temp2
+	add i,@1
+	adc j,c
+	st Z,i
+	std Z+1,j 
 .endmacro
 
 .macro print_reg
 jmp start_print
+
 no_skip1:
-rcall print_num
-jmp start_loop2
+	rcall print_num
+	jmp start_loop2
 
 no_skip2:
-rcall print_num
-jmp loop3
+	rcall print_num
+	jmp loop3
+
 start_print:
-ldi temp2,100
-mov d,temp2
-ldi temp2,0
-mov c,@0
+	ldi temp2,100
+	mov d,temp2
+	ldi temp2,0
+	mov c,@0
 
 loop1:
-sub c,d
-inc temp2
-cp c,d
-brge loop1 
+	sub c,d
+	inc temp2
+	cp c,d
+	brge loop1 
 
-cpi temp2,0
-brne no_skip1
-mov c,@0
+	cpi temp2,0
+	brne no_skip1
+	mov c,@0
 
 start_loop2:
-ldi temp2,10
-mov d,temp2
-ldi temp2,0
-loop2:
-sub c,d
-inc temp2
-cp c,d
-brge loop2
+	ldi temp2,10
+	mov d,temp2
+	ldi temp2,0
 
-cpi temp2,0
-brne no_skip2
-mov c,@0
+loop2:
+	sub c,d
+	inc temp2
+	cp c,d
+	brge loop2
+
+	cpi temp2,0
+	brne no_skip2
+	mov c,@0
 
 loop3:
-mov temp2,c
-rcall print_num
+	mov temp2,c
+	rcall print_num
 .endmacro
 
 
-
 RESET:
-;reset keypad
-ldi temp, low(RAMEND)
-out SPL, temp
-ldi temp, high(RAMEND)
-out SPH, temp
-ldi temp, PORTLDIR ; columns are outputs, rows are inputs
-STS DDRL, temp     ; cannot use out
-ser temp
-out DDRC, temp ; Make PORTC all outputs
-clr temp;
-out PORTC, temp ; Turn on all the LEDs
-;reset lcd
-ser temp
-out DDRF, temp
-out DDRA, temp
+	;reset keypad
+	ldi temp, low(RAMEND)
+	out SPL, temp
+	ldi temp, high(RAMEND)
+	out SPH, temp
+	ldi temp, PORTLDIR ; columns are outputs, rows are inputs
+	STS DDRL, temp     ; cannot use out
+	ser temp
+	out DDRC, temp ; Make PORTC all outputs
+	clr temp;
+	out PORTC, temp ; Turn on all the LEDs
+	;reset lcd
+	ser temp
+	out DDRF, temp
+	out DDRA, temp
 
-clr temp
-out PORTF, temp
-out PORTA, temp
+	clr temp
+	out PORTF, temp
+	out PORTA, temp
 
-do_lcd_command 0b00111000 ; 2x5x7
-rcall sleep_5ms
-do_lcd_command 0b00111000 ; 2x5x7
-rcall sleep_1ms
-do_lcd_command 0b00111000 ; 2x5x7
-do_lcd_command 0b00111000 ; 2x5x7
-do_lcd_command 0b00001000 ; display off?
-do_lcd_command 0b00000001 ; clear display
-do_lcd_command 0b00000110 ; increment, no display shift
-do_lcd_command 0b00001110 ; Cursor on, bar, no blink
+	do_lcd_command 0b00111000 ; 2x5x7
+	rcall sleep_5ms
+	do_lcd_command 0b00111000 ; 2x5x7
+	rcall sleep_1ms
+	do_lcd_command 0b00111000 ; 2x5x7
+	do_lcd_command 0b00111000 ; 2x5x7
+	do_lcd_command 0b00001000 ; display off?
+	do_lcd_command 0b00000001 ; clear display
+	do_lcd_command 0b00000110 ; increment, no display shift
+	do_lcd_command 0b00001110 ; Cursor on, bar, no blink
 
-clr nletters
-clr lcd_result
-clr i
-clr j
-clr k
-clr num2
-;clr overflow_flag;
-;Setup the parameters for the debouncing sleep as [250, 150, 10].
+	clr nletters
+	clr lcd_result
+	clr i
+	clr j
+	clr k
+	clr num2
 
-rjmp main
+	rjmp main
+
 
 main:
-ldi mask, INITCOLMASK ; initial column mask
-clr col ; initial column
-colloop:
-STS PORTL, mask ; set column to mask value
-; (sets column 0 off)
-ldi temp, 0xFF ; implement a delay so the
-; hardware can stabilize
-delay:
-dec temp
-brne delay
-LDS temp, PINL ; read PORTL. Cannot use in 
-andi temp, ROWMASK ; read only the row bits
-cpi temp, 0xF ; check if any rows are grounded
-breq nextcol ; if not go to the next column
-ldi mask, INITROWMASK ; initialise row check
-clr row ; initial row
-rowloop:      
-mov temp2, temp
-and temp2, mask ; check masked bit
-brne skipconv ; if the result is non-zero,
-; we need to look again
-rcall convert ; if bit is clear, convert the bitcode
-jmp main ; and start again
-;jmp Initialise_keypad
-skipconv:
-inc row ; else move to the next row
-lsl mask ; shift the mask to the next bit
-jmp rowloop          
-nextcol:     
-cpi col, 3 ; check if we are on the last column
-breq main ; if so, no buttons were pushed,
-; so start again.
+	ldi mask, INITCOLMASK ; initial column mask
+	clr col ; initial column
 
-sec ; else shift the column mask:
-; We must set the carry bit
-rol mask ; and then rotate left by a bit,
-; shifting the carry into
-; bit zero. We need this to make
-; sure all the rows have
-; pull-up resistors
-inc col ; increment column value
-jmp colloop ; and check the next column
-; convert function converts the row and column given to a
-; binary number and also outputs the value to PORTC.
-; Inputs come from registers row and col and output is in
-; temp.
+colloop:
+	STS PORTL, mask ; set column to mask value (sets column 0 off)
+	ldi temp, 0xFF ; implement a delay so the hardware can stabilize
+
+delay:
+	dec temp
+	brne delay
+	LDS temp, PINL ; read PORTL. Cannot use in 
+	andi temp, ROWMASK ; read only the row bits
+	cpi temp, 0xF ; check if any rows are grounded
+	breq nextcol ; if not go to the next column
+	ldi mask, INITROWMASK ; initialise row check
+	clr row ; initial row
+
+rowloop:      
+	mov temp2, temp
+	and temp2, mask ; check masked bit
+	brne skipconv ; if the result is non-zero,
+	; we need to look again
+	rcall convert ; if bit is clear, convert the bitcode
+	jmp main ; and start again
+	;jmp Initialise_keypad
+
+skipconv:
+	inc row ; else move to the next row
+	lsl mask ; shift the mask to the next bit
+	jmp rowloop          
+
+nextcol:     
+	cpi col, 3 ; check if we are on the last column
+	breq main ; if so, no buttons were pushed,
+	; so start again.
+	sec ; else shift the column mask:
+	; We must set the carry bit
+	rol mask ; and then rotate left by a bit,
+	; shifting the carry into
+	; bit zero. We need this to make
+	; sure all the rows have
+	; pull-up resistors
+	inc col ; increment column value
+	jmp colloop ; and check the next column
+	; convert function converts the row and column given to a
+	; binary number and also outputs the value to PORTC.
+	; Inputs come from registers row and col and output is in
+	; temp.
 
 convert:
 	push r24
@@ -252,13 +257,14 @@ convert:
 second_number:
 	x10_add sec_num, temp
 	jmp convert_end
+
 symbols:
 	
 	cpi col, 1 ;if we have zero
 	breq zero
 	ret
+
 letters:
-	
 	ldi temp, 0xA
 	add temp, row
 	cpi temp, 0xA
@@ -269,7 +275,7 @@ letters:
 	breq c_equal
 	ret
 
-a_plus:
+	a_plus:
 	ldi temp2,1
 	mov inv,temp2
 	ldi lcd_result, 13; else if A, load with 13 to make it '-' 
@@ -279,7 +285,7 @@ a_plus:
 	ldi num2,1
 	jmp convert_end
 
-b_minus:
+	b_minus:
 	ldi temp2,1
 	mov inv,temp2
 	ldi lcd_result, 11
@@ -289,7 +295,8 @@ b_minus:
 	ldi num2,1
 	jmp convert_end
 
-c_equal:
+
+	c_equal:
 	ldi lcd_result, 13
 	ldi high_order_bit, HOB_NUM; need 0011 high nibble for '='
 	or lcd_result, high_order_bit; OR the high order bit with the value for outputting to lcd.
@@ -297,7 +304,7 @@ c_equal:
 	jmp calculation
 	
 
-zero:
+	zero:
 	ldi temp2,0
 	mov inv,temp2
 	clr temp ; set to zero
@@ -317,6 +324,7 @@ convert_end:
 	rcall next_line
 	do_lcd_data_r lcd_result; output the value to the LCD
 	inc nletters; increment the counter for how many chars have been written
+
 preserve:
 	LDS temp, PINL ; read PORTL. Cannot use in 
 	cp temp, flag
@@ -326,122 +334,65 @@ preserve:
 	ret ; return to caller
 
 calculation:
-ldi temp2,1
-cp inv,temp2
-breq invalid
-ldi temp2,11
-cp operator,temp2
-breq plus
-ldi temp2,13
-cp operator,temp2
-breq minus
-jmp convert_end
-plus:
-ldi r28, low(fir_num)
-ldi r29, high(fir_num)
-ldi r30, low(sec_num)
-ldi r31, high(sec_num)
+	ldi temp2,1
+	cp inv,temp2
+	breq invalid
+	ldi temp2,11
+	cp operator,temp2
+	breq plus
+	ldi temp2,13
+	cp operator,temp2
+	breq minus
+	jmp convert_end
 
-ld a, Z
-ldd b, Z+1
-ld i, Y
-ldd j, Y+1
-add i,a
-adc j,b
-st Y,i
-std Y+1,j
-ldi r30, low(result)
-ldi r31, high(result)
-st Z,i
-std Z+1,j
-rjmp end_calculation
+plus:
+	ldi r28, low(fir_num)
+	ldi r29, high(fir_num)
+	ldi r30, low(sec_num)
+	ldi r31, high(sec_num)
+
+	ld a, Z
+	ldd b, Z+1
+	ld i, Y
+	ldd j, Y+1
+	add i,a
+	adc j,b
+	st Y,i
+	std Y+1,j
+	ldi r30, low(result)
+	ldi r31, high(result)
+	st Z,i
+	std Z+1,j
+	rjmp end_calculation
 
 minus:
-ldi r28, low(fir_num)
-ldi r29, high(fir_num)
-ldi r30, low(sec_num)
-ldi r31, high(sec_num)
+	ldi r28, low(fir_num)
+	ldi r29, high(fir_num)
+	ldi r30, low(sec_num)
+	ldi r31, high(sec_num)
 
-ld a, Z
-ldd b, Z+1
-ld i, Y
-ldd j, Y+1
-sub i,a
-sbc j,b
-st Y,i
-std Y+1,j
-ldi r30, low(result)
-ldi r31, high(result)
-st Z,i
-std Z+1,j
-rjmp end_calculation
+	ld a, Z
+	ldd b, Z+1
+	ld i, Y
+	ldd j, Y+1
+	sub i,a
+	sbc j,b
+	st Y,i
+	std Y+1,j
+	ldi r30, low(result)
+	ldi r31, high(result)
+	st Z,i
+	std Z+1,j
+	rjmp end_calculation
+
 invalid:
-<<<<<<< HEAD
-rcall next_line
-do_lcd_data_k '='
-inc nletters
-rcall next_line
-do_lcd_data_k 'i'
-inc nletters
-rcall next_line
-do_lcd_data_k 'c'
-inc nletters
-rcall next_line
-do_lcd_data_k 'o'
-inc nletters
-rcall next_line
-do_lcd_data_k 'r'
-inc nletters
-rcall next_line
-do_lcd_data_k 'r'
-inc nletters
-rcall next_line
-do_lcd_data_k 'e'
-inc nletters
-rcall next_line
-do_lcd_data_k 'c'
-inc nletters
-rcall next_line
-do_lcd_data_k 't'
-inc nletters
-rcall next_line
-do_lcd_data_k 'e'
-inc nletters
-rcall next_line
-do_lcd_data_k 'x'
-inc nletters
-rcall next_line
-do_lcd_data_k 'p'
-inc nletters
-rcall next_line
-do_lcd_data_k 'r'
-inc nletters
-rcall next_line
-do_lcd_data_k 'e'
-inc nletters
-rcall next_line
-do_lcd_data_k 's'
-inc nletters
-rcall next_line
-do_lcd_data_k 's'
-inc nletters
-rcall next_line
-do_lcd_data_k 'i'
-inc nletters
-rcall next_line
-do_lcd_data_k 'o'
-inc nletters
-rcall next_line
-do_lcd_data_k 'n'
-inc nletters
-rjmp loop
-=======
 	rcall next_line
 	do_lcd_data_k '='
 	inc nletters
 	rcall next_line
-	do_lcd_data_k 'I'
+	do_lcd_data_k 'i'
 	inc nletters
+	rcall next_line
 	do_lcd_data_k 'n'
 	inc nletters
 	rcall next_line
@@ -464,18 +415,6 @@ rjmp loop
 	inc nletters
 	rcall next_line
 	do_lcd_data_k 't'
-	inc nletters
-	rcall next_line
-	do_lcd_data_k ' '
-	inc nletters
-	rcall next_line
-	do_lcd_data_k ' '
-	inc nletters
-	rcall next_line
-	do_lcd_data_k ' '
-	inc nletters
-	rcall next_line
-	do_lcd_data_k ' '
 	inc nletters
 	rcall next_line
 	do_lcd_data_k 'e'
@@ -508,67 +447,57 @@ rjmp loop
 	do_lcd_data_k 'n'
 	inc nletters
 	rjmp loop
->>>>>>> b6b1a6d84cdd23906de15ed0dea139159413b113
-
-
 
 end_calculation:
-;ldi r30, low(sec_num)
-;ldi r31, high(sec_num)
-;clr a
-;st Z,a
-;std Z+1,a
-rcall next_line
-do_lcd_data_k '='
-inc nletters
+	rcall next_line
+	do_lcd_data_k '='
+	inc nletters
 print_result:
-ldi r30, low(result)
-ldi r31, high(result)
-ld a, Z
-ldd b, Z+1
-ldi temp2,0
-print_reg a
-print_reg b
-rjmp loop
+	ldi r30, low(result)
+	ldi r31, high(result)
+	ld a, Z
+	ldd b, Z+1
+	ldi temp2,0
+	print_reg a
+	print_reg b
+	rjmp loop
 
 
 print_num:
-rcall next_line
-mov lcd_result, temp2; store the value into lcd output register
-ldi high_order_bit, HOB_NUM;
-or lcd_result, high_order_bit; OR the high order bit with the value for outputting to lcd.
-do_lcd_data_r lcd_result; output the value to the LCD
-inc nletters
-ret
-
-
-
+	rcall next_line
+	mov lcd_result, temp2; store the value into lcd output register
+	ldi high_order_bit, HOB_NUM;
+	or lcd_result, high_order_bit; OR the high order bit with the value for outputting to lcd.
+	do_lcd_data_r lcd_result; output the value to the LCD
+	inc nletters
+	ret
 
 next_line:
-ldi temp2,16
-cp nletters,temp2
-breq go_next
-ldi temp2,32
-cp nletters,temp2
-breq go_first
-ret
-go_next:
-lcd_clr LCD_RS
-lcd_clr LCD_RW
-do_lcd_command 0b11000000
-ret
-go_first:
-lcd_clr LCD_RS
-lcd_clr LCD_RW
-do_lcd_command 0b00000001
-clr nletters
-ret
- ;LCD MACRO AND OTHER FUNCTIONS
-.equ LCD_RS = 7
-.equ LCD_E = 6
-.equ LCD_RW = 5
-.equ LCD_BE = 4
+	ldi temp2,16
+	cp nletters,temp2
+	breq go_next
+	ldi temp2,32
+	cp nletters,temp2
+	breq go_first
+	ret
 
+go_next:
+	lcd_clr LCD_RS
+	lcd_clr LCD_RW
+	do_lcd_command 0b11000000
+	ret
+
+go_first:
+	lcd_clr LCD_RS
+	lcd_clr LCD_RW
+	do_lcd_command 0b00000001
+	clr nletters
+	ret
+	 ;LCD MACRO AND OTHER FUNCTIONS
+	.equ LCD_RS = 7
+	.equ LCD_E = 6
+	.equ LCD_RW = 5
+	.equ LCD_BE = 4
 
 ;
 ; Send a command to the LCD (r16)
@@ -651,5 +580,5 @@ sleep_5ms:
 	ret
 
 loop:
-rjmp loop
+	rjmp loop
 

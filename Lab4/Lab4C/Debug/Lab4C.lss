@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm Thu Sep 20 13:23:26 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm Thu Oct 04 13:16:00 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
                                  
-                                 
+                                 ; Lab4C.asm
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega2560.xml **********
                                  ;*************************************************************************
@@ -1844,6 +1844,8 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
+                                 ; Authors : Omar Al-Ouf & Ihor Balaban
+                                 
                                  .include "m2560def.inc"
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega2560.xml **********
@@ -1948,185 +1950,190 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
                                  	rcall lcd_data
                                  	rcall lcd_wait
                                  .endmacro
-                                 .macro lcd_set
-                                 sbi PORTA, @0
+                                 	.macro lcd_set
+                                 	sbi PORTA, @0
                                  .endmacro
                                  
                                  .macro lcd_clr
-                                 cbi PORTA, @0
+                                 	cbi PORTA, @0
                                  .endmacro
                                  
                                  .macro x10_add
-                                 ldi r30,low(@0)
-                                 ldi r31,high(@0)
-                                 ld a,Z
-                                 ldd b,Z+1
-                                 ldi temp2,10
-                                 mul a,c
-                                 mov i,r0
-                                 mov j,r1
-                                 mul b,c
-                                 adc j,r0
+                                 	ldi r30,low(@0)
+                                 	ldi r31,high(@0)
+                                 	ld a,Z
+                                 	ldd b,Z+1
+                                 	ldi temp2,10
+                                 	mul a,c
+                                 	mov i,r0
+                                 	mov j,r1
+                                 	mul b,c
+                                 	adc j,r0
                                  
-                                 clr temp2
-                                 add i,@1
-                                 adc j,c
-                                 st Z,i
-                                 std Z+1,j 
+                                 	clr temp2
+                                 	add i,@1
+                                 	adc j,c
+                                 	st Z,i
+                                 	std Z+1,j 
                                  .endmacro
                                  
                                  .macro print_reg
                                  jmp start_print
+                                 
                                  no_skip1:
-                                 rcall print_num
-                                 jmp start_loop2
+                                 	rcall print_num
+                                 	jmp start_loop2
                                  
                                  no_skip2:
-                                 rcall print_num
-                                 jmp loop3
+                                 	rcall print_num
+                                 	jmp loop3
+                                 
                                  start_print:
-                                 ldi temp2,100
-                                 mov d,temp2
-                                 ldi temp2,0
-                                 mov c,@0
+                                 	ldi temp2,100
+                                 	mov d,temp2
+                                 	ldi temp2,0
+                                 	mov c,@0
                                  
                                  loop1:
-                                 sub c,d
-                                 inc temp2
-                                 cp c,d
-                                 brge loop1 
+                                 	sub c,d
+                                 	inc temp2
+                                 	cp c,d
+                                 	brge loop1 
                                  
-                                 cpi temp2,0
-                                 brne no_skip1
-                                 mov c,@0
+                                 	cpi temp2,0
+                                 	brne no_skip1
+                                 	mov c,@0
                                  
                                  start_loop2:
-                                 ldi temp2,10
-                                 mov d,temp2
-                                 ldi temp2,0
-                                 loop2:
-                                 sub c,d
-                                 inc temp2
-                                 cp c,d
-                                 brge loop2
+                                 	ldi temp2,10
+                                 	mov d,temp2
+                                 	ldi temp2,0
                                  
-                                 cpi temp2,0
-                                 brne no_skip2
-                                 mov c,@0
+                                 loop2:
+                                 	sub c,d
+                                 	inc temp2
+                                 	cp c,d
+                                 	brge loop2
+                                 
+                                 	cpi temp2,0
+                                 	brne no_skip2
+                                 	mov c,@0
                                  
                                  loop3:
-                                 mov temp2,c
-                                 rcall print_num
+                                 	mov temp2,c
+                                 	rcall print_num
                                  .endmacro
                                  
                                  
-                                 
                                  RESET:
-                                 ;reset keypad
-000072 ef0f                      ldi temp, low(RAMEND)
-000073 bf0d                      out SPL, temp
-000074 e201                      ldi temp, high(RAMEND)
-000075 bf0e                      out SPH, temp
-000076 ef00                      ldi temp, PORTLDIR ; columns are outputs, rows are inputs
-000077 9300 010a                 STS DDRL, temp     ; cannot use out
-000079 ef0f                      ser temp
-00007a b907                      out DDRC, temp ; Make PORTC all outputs
-00007b 2700                      clr temp;
-00007c b908                      out PORTC, temp ; Turn on all the LEDs
-                                 ;reset lcd
-00007d ef0f                      ser temp
-00007e bb00                      out DDRF, temp
-00007f b901                      out DDRA, temp
+                                 	;reset keypad
+000072 ef0f                      	ldi temp, low(RAMEND)
+000073 bf0d                      	out SPL, temp
+000074 e201                      	ldi temp, high(RAMEND)
+000075 bf0e                      	out SPH, temp
+000076 ef00                      	ldi temp, PORTLDIR ; columns are outputs, rows are inputs
+000077 9300 010a                 	STS DDRL, temp     ; cannot use out
+000079 ef0f                      	ser temp
+00007a b907                      	out DDRC, temp ; Make PORTC all outputs
+00007b 2700                      	clr temp;
+00007c b908                      	out PORTC, temp ; Turn on all the LEDs
+                                 	;reset lcd
+00007d ef0f                      	ser temp
+00007e bb00                      	out DDRF, temp
+00007f b901                      	out DDRA, temp
                                  
-000080 2700                      clr temp
-000081 bb01                      out PORTF, temp
-000082 b902                      out PORTA, temp
+000080 2700                      	clr temp
+000081 bb01                      	out PORTF, temp
+000082 b902                      	out PORTA, temp
                                  
 000083 e308
 000084 d1b0
-000085 d1c9                      do_lcd_command 0b00111000 ; 2x5x7
-000086 d1e4                      rcall sleep_5ms
+000085 d1c9                      	do_lcd_command 0b00111000 ; 2x5x7
+000086 d1e4                      	rcall sleep_5ms
 000087 e308
 000088 d1ac
-000089 d1c5                      do_lcd_command 0b00111000 ; 2x5x7
-00008a d1d7                      rcall sleep_1ms
+000089 d1c5                      	do_lcd_command 0b00111000 ; 2x5x7
+00008a d1d7                      	rcall sleep_1ms
 00008b e308
 00008c d1a8
-00008d d1c1                      do_lcd_command 0b00111000 ; 2x5x7
+00008d d1c1                      	do_lcd_command 0b00111000 ; 2x5x7
 00008e e308
 00008f d1a5
-000090 d1be                      do_lcd_command 0b00111000 ; 2x5x7
+000090 d1be                      	do_lcd_command 0b00111000 ; 2x5x7
 000091 e008
 000092 d1a2
-000093 d1bb                      do_lcd_command 0b00001000 ; display off?
+000093 d1bb                      	do_lcd_command 0b00001000 ; display off?
 000094 e001
 000095 d19f
-000096 d1b8                      do_lcd_command 0b00000001 ; clear display
+000096 d1b8                      	do_lcd_command 0b00000001 ; clear display
 000097 e006
 000098 d19c
-000099 d1b5                      do_lcd_command 0b00000110 ; increment, no display shift
+000099 d1b5                      	do_lcd_command 0b00000110 ; increment, no display shift
 00009a e00e
 00009b d199
-00009c d1b2                      do_lcd_command 0b00001110 ; Cursor on, bar, no blink
+00009c d1b2                      	do_lcd_command 0b00001110 ; Cursor on, bar, no blink
                                  
-00009d 2433                      clr nletters
-00009e 2777                      clr lcd_result
-00009f 2466                      clr i
-0000a0 2477                      clr j
-0000a1 2488                      clr k
-0000a2 2766                      clr num2
-                                 ;clr overflow_flag;
-                                 ;Setup the parameters for the debouncing sleep as [250, 150, 10].
+00009d 2433                      	clr nletters
+00009e 2777                      	clr lcd_result
+00009f 2466                      	clr i
+0000a0 2477                      	clr j
+0000a1 2488                      	clr k
+0000a2 2766                      	clr num2
+                                 	;clr overflow_flag;
+                                 	;Setup the parameters for the debouncing sleep as [250, 150, 10].
                                  
-0000a3 c000                      rjmp main
+0000a3 c000                      	rjmp main
+                                 
                                  
                                  main:
-0000a4 ee3f                      ldi mask, INITCOLMASK ; initial column mask
-0000a5 2722                      clr col ; initial column
-                                 colloop:
-0000a6 9330 010b                 STS PORTL, mask ; set column to mask value
-                                 ; (sets column 0 off)
-0000a8 ef0f                      ldi temp, 0xFF ; implement a delay so the
-                                 ; hardware can stabilize
-                                 delay:
-0000a9 950a                      dec temp
-0000aa f7f1                      brne delay
-0000ab 9100 0109                 LDS temp, PINL ; read PORTL. Cannot use in 
-0000ad 700f                      andi temp, ROWMASK ; read only the row bits
-0000ae 300f                      cpi temp, 0xF ; check if any rows are grounded
-0000af f061                      breq nextcol ; if not go to the next column
-0000b0 e031                      ldi mask, INITROWMASK ; initialise row check
-0000b1 2711                      clr row ; initial row
-                                 rowloop:      
-0000b2 2f40                      mov temp2, temp
-0000b3 2343                      and temp2, mask ; check masked bit
-0000b4 f419                      brne skipconv ; if the result is non-zero,
-                                 ; we need to look again
-0000b5 d00d                      rcall convert ; if bit is clear, convert the bitcode
-0000b6 940c 00a4                 jmp main ; and start again
-                                 ;jmp Initialise_keypad
-                                 skipconv:
-0000b8 9513                      inc row ; else move to the next row
-0000b9 0f33                      lsl mask ; shift the mask to the next bit
-0000ba 940c 00b2                 jmp rowloop          
-                                 nextcol:     
-0000bc 3023                      cpi col, 3 ; check if we are on the last column
-0000bd f331                      breq main ; if so, no buttons were pushed,
-                                 ; so start again.
+0000a4 ee3f                      	ldi mask, INITCOLMASK ; initial column mask
+0000a5 2722                      	clr col ; initial column
                                  
-0000be 9408                      sec ; else shift the column mask:
-                                 ; We must set the carry bit
-0000bf 1f33                      rol mask ; and then rotate left by a bit,
-                                 ; shifting the carry into
-                                 ; bit zero. We need this to make
-                                 ; sure all the rows have
-                                 ; pull-up resistors
-0000c0 9523                      inc col ; increment column value
-0000c1 940c 00a6                 jmp colloop ; and check the next column
-                                 ; convert function converts the row and column given to a
-                                 ; binary number and also outputs the value to PORTC.
-                                 ; Inputs come from registers row and col and output is in
-                                 ; temp.
+                                 colloop:
+0000a6 9330 010b                 	STS PORTL, mask ; set column to mask value (sets column 0 off)
+0000a8 ef0f                      	ldi temp, 0xFF ; implement a delay so the hardware can stabilize
+                                 
+                                 delay:
+0000a9 950a                      	dec temp
+0000aa f7f1                      	brne delay
+0000ab 9100 0109                 	LDS temp, PINL ; read PORTL. Cannot use in 
+0000ad 700f                      	andi temp, ROWMASK ; read only the row bits
+0000ae 300f                      	cpi temp, 0xF ; check if any rows are grounded
+0000af f061                      	breq nextcol ; if not go to the next column
+0000b0 e031                      	ldi mask, INITROWMASK ; initialise row check
+0000b1 2711                      	clr row ; initial row
+                                 
+                                 rowloop:      
+0000b2 2f40                      	mov temp2, temp
+0000b3 2343                      	and temp2, mask ; check masked bit
+0000b4 f419                      	brne skipconv ; if the result is non-zero,
+                                 	; we need to look again
+0000b5 d00d                      	rcall convert ; if bit is clear, convert the bitcode
+0000b6 940c 00a4                 	jmp main ; and start again
+                                 	;jmp Initialise_keypad
+                                 
+                                 skipconv:
+0000b8 9513                      	inc row ; else move to the next row
+0000b9 0f33                      	lsl mask ; shift the mask to the next bit
+0000ba 940c 00b2                 	jmp rowloop          
+                                 
+                                 nextcol:     
+0000bc 3023                      	cpi col, 3 ; check if we are on the last column
+0000bd f331                      	breq main ; if so, no buttons were pushed,
+                                 	; so start again.
+0000be 9408                      	sec ; else shift the column mask:
+                                 	; We must set the carry bit
+0000bf 1f33                      	rol mask ; and then rotate left by a bit,
+                                 	; shifting the carry into
+                                 	; bit zero. We need this to make
+                                 	; sure all the rows have
+                                 	; pull-up resistors
+0000c0 9523                      	inc col ; increment column value
+0000c1 940c 00a6                 	jmp colloop ; and check the next column
+                                 	; convert function converts the row and column given to a
+                                 	; binary number and also outputs the value to PORTC.
+                                 	; Inputs come from registers row and col and output is in
+                                 	; temp.
                                  
                                  convert:
 0000c3 938f                      	push r24
@@ -2184,11 +2191,13 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
 0000f3 8260
 0000f4 8271                      	x10_add sec_num, temp
 0000f5 940c 0134                 	jmp convert_end
+                                 
                                  symbols:
                                  	
 0000f7 3021                      	cpi col, 1 ;if we have zero
 0000f8 f111                      	breq zero
 0000f9 9508                      	ret
+                                 
                                  letters:
                                  	
 0000fa e00a                      	ldi temp, 0xA
@@ -2266,6 +2275,7 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
 000138 d107
 000139 d115                      	do_lcd_data_r lcd_result; output the value to the LCD
 00013a 9433                      	inc nletters; increment the counter for how many chars have been written
+                                 
                                  preserve:
 00013b 9100 0109                 	LDS temp, PINL ; read PORTL. Cannot use in 
 00013d 1504                      	cp temp, flag
@@ -2275,172 +2285,174 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
 000141 9508                      	ret ; return to caller
                                  
                                  calculation:
-000142 e041                      ldi temp2,1
-000143 16f4                      cp inv,temp2
-000144 f151                      breq invalid
-000145 e04b                      ldi temp2,11
-000146 16e4                      cp operator,temp2
-000147 f029                      breq plus
-000148 e04d                      ldi temp2,13
-000149 16e4                      cp operator,temp2
-00014a f099                      breq minus
-00014b 940c 0134                 jmp convert_end
-                                 plus:
-00014d e0c0                      ldi r28, low(fir_num)
-00014e e0d2                      ldi r29, high(fir_num)
-00014f e0e2                      ldi r30, low(sec_num)
-000150 e0f2                      ldi r31, high(sec_num)
+000142 e041                      	ldi temp2,1
+000143 16f4                      	cp inv,temp2
+000144 f151                      	breq invalid
+000145 e04b                      	ldi temp2,11
+000146 16e4                      	cp operator,temp2
+000147 f029                      	breq plus
+000148 e04d                      	ldi temp2,13
+000149 16e4                      	cp operator,temp2
+00014a f099                      	breq minus
+00014b 940c 0134                 	jmp convert_end
                                  
-000151 8090                      ld a, Z
-000152 80a1                      ldd b, Z+1
-000153 8068                      ld i, Y
-000154 8079                      ldd j, Y+1
-000155 0c69                      add i,a
-000156 1c7a                      adc j,b
-000157 8268                      st Y,i
-000158 8279                      std Y+1,j
-000159 e0e4                      ldi r30, low(result)
-00015a e0f2                      ldi r31, high(result)
-00015b 8260                      st Z,i
-00015c 8271                      std Z+1,j
-00015d c071                      rjmp end_calculation
+                                 plus:
+00014d e0c0                      	ldi r28, low(fir_num)
+00014e e0d2                      	ldi r29, high(fir_num)
+00014f e0e2                      	ldi r30, low(sec_num)
+000150 e0f2                      	ldi r31, high(sec_num)
+                                 
+000151 8090                      	ld a, Z
+000152 80a1                      	ldd b, Z+1
+000153 8068                      	ld i, Y
+000154 8079                      	ldd j, Y+1
+000155 0c69                      	add i,a
+000156 1c7a                      	adc j,b
+000157 8268                      	st Y,i
+000158 8279                      	std Y+1,j
+000159 e0e4                      	ldi r30, low(result)
+00015a e0f2                      	ldi r31, high(result)
+00015b 8260                      	st Z,i
+00015c 8271                      	std Z+1,j
+00015d c071                      	rjmp end_calculation
                                  
                                  minus:
-00015e e0c0                      ldi r28, low(fir_num)
-00015f e0d2                      ldi r29, high(fir_num)
-000160 e0e2                      ldi r30, low(sec_num)
-000161 e0f2                      ldi r31, high(sec_num)
+00015e e0c0                      	ldi r28, low(fir_num)
+00015f e0d2                      	ldi r29, high(fir_num)
+000160 e0e2                      	ldi r30, low(sec_num)
+000161 e0f2                      	ldi r31, high(sec_num)
                                  
-000162 8090                      ld a, Z
-000163 80a1                      ldd b, Z+1
-000164 8068                      ld i, Y
-000165 8079                      ldd j, Y+1
-000166 1869                      sub i,a
-000167 087a                      sbc j,b
-000168 8268                      st Y,i
-000169 8279                      std Y+1,j
-00016a e0e4                      ldi r30, low(result)
-00016b e0f2                      ldi r31, high(result)
-00016c 8260                      st Z,i
-00016d 8271                      std Z+1,j
-00016e c060                      rjmp end_calculation
+000162 8090                      	ld a, Z
+000163 80a1                      	ldd b, Z+1
+000164 8068                      	ld i, Y
+000165 8079                      	ldd j, Y+1
+000166 1869                      	sub i,a
+000167 087a                      	sbc j,b
+000168 8268                      	st Y,i
+000169 8279                      	std Y+1,j
+00016a e0e4                      	ldi r30, low(result)
+00016b e0f2                      	ldi r31, high(result)
+00016c 8260                      	st Z,i
+00016d 8271                      	std Z+1,j
+00016e c060                      	rjmp end_calculation
+                                 
                                  invalid:
-00016f d0b1                      rcall next_line
+00016f d0b1                      	rcall next_line
 000170 e30d
 000171 d0ce
-000172 d0dc                      do_lcd_data_k '='
-000173 9433                      inc nletters
-000174 d0ac                      rcall next_line
+000172 d0dc                      	do_lcd_data_k '='
+000173 9433                      	inc nletters
+000174 d0ac                      	rcall next_line
 000175 e609
 000176 d0c9
-000177 d0d7                      do_lcd_data_k 'i'
-000178 9433                      inc nletters
-000179 d0a7                      rcall next_line
+000177 d0d7                      	do_lcd_data_k 'i'
+000178 9433                      	inc nletters
+000179 d0a7                      	rcall next_line
 00017a e603
 00017b d0c4
-00017c d0d2                      do_lcd_data_k 'c'
-00017d 9433                      inc nletters
-00017e d0a2                      rcall next_line
+00017c d0d2                      	do_lcd_data_k 'c'
+00017d 9433                      	inc nletters
+00017e d0a2                      	rcall next_line
 00017f e60f
 000180 d0bf
-000181 d0cd                      do_lcd_data_k 'o'
-000182 9433                      inc nletters
-000183 d09d                      rcall next_line
+000181 d0cd                      	do_lcd_data_k 'o'
+000182 9433                      	inc nletters
+000183 d09d                      	rcall next_line
 000184 e702
 000185 d0ba
-000186 d0c8                      do_lcd_data_k 'r'
-000187 9433                      inc nletters
-000188 d098                      rcall next_line
+000186 d0c8                      	do_lcd_data_k 'r'
+000187 9433                      	inc nletters
+000188 d098                      	rcall next_line
 000189 e702
 00018a d0b5
-00018b d0c3                      do_lcd_data_k 'r'
-00018c 9433                      inc nletters
-00018d d093                      rcall next_line
+00018b d0c3                      	do_lcd_data_k 'r'
+00018c 9433                      	inc nletters
+00018d d093                      	rcall next_line
 00018e e605
 00018f d0b0
-000190 d0be                      do_lcd_data_k 'e'
-000191 9433                      inc nletters
-000192 d08e                      rcall next_line
+000190 d0be                      	do_lcd_data_k 'e'
+000191 9433                      	inc nletters
+000192 d08e                      	rcall next_line
 000193 e603
 000194 d0ab
-000195 d0b9                      do_lcd_data_k 'c'
-000196 9433                      inc nletters
-000197 d089                      rcall next_line
+000195 d0b9                      	do_lcd_data_k 'c'
+000196 9433                      	inc nletters
+000197 d089                      	rcall next_line
 000198 e704
 000199 d0a6
-00019a d0b4                      do_lcd_data_k 't'
-00019b 9433                      inc nletters
-00019c d084                      rcall next_line
+00019a d0b4                      	do_lcd_data_k 't'
+00019b 9433                      	inc nletters
+00019c d084                      	rcall next_line
 00019d e605
 00019e d0a1
-00019f d0af                      do_lcd_data_k 'e'
-0001a0 9433                      inc nletters
-0001a1 d07f                      rcall next_line
+00019f d0af                      	do_lcd_data_k 'e'
+0001a0 9433                      	inc nletters
+0001a1 d07f                      	rcall next_line
 0001a2 e708
 0001a3 d09c
-0001a4 d0aa                      do_lcd_data_k 'x'
-0001a5 9433                      inc nletters
-0001a6 d07a                      rcall next_line
+0001a4 d0aa                      	do_lcd_data_k 'x'
+0001a5 9433                      	inc nletters
+0001a6 d07a                      	rcall next_line
 0001a7 e700
 0001a8 d097
-0001a9 d0a5                      do_lcd_data_k 'p'
-0001aa 9433                      inc nletters
-0001ab d075                      rcall next_line
+0001a9 d0a5                      	do_lcd_data_k 'p'
+0001aa 9433                      	inc nletters
+0001ab d075                      	rcall next_line
 0001ac e702
 0001ad d092
-0001ae d0a0                      do_lcd_data_k 'r'
-0001af 9433                      inc nletters
-0001b0 d070                      rcall next_line
+0001ae d0a0                      	do_lcd_data_k 'r'
+0001af 9433                      	inc nletters
+0001b0 d070                      	rcall next_line
 0001b1 e605
 0001b2 d08d
-0001b3 d09b                      do_lcd_data_k 'e'
-0001b4 9433                      inc nletters
-0001b5 d06b                      rcall next_line
+0001b3 d09b                      	do_lcd_data_k 'e'
+0001b4 9433                      	inc nletters
+0001b5 d06b                      	rcall next_line
 0001b6 e703
 0001b7 d088
-0001b8 d096                      do_lcd_data_k 's'
-0001b9 9433                      inc nletters
-0001ba d066                      rcall next_line
+0001b8 d096                      	do_lcd_data_k 's'
+0001b9 9433                      	inc nletters
+0001ba d066                      	rcall next_line
 0001bb e703
 0001bc d083
-0001bd d091                      do_lcd_data_k 's'
-0001be 9433                      inc nletters
-0001bf d061                      rcall next_line
+0001bd d091                      	do_lcd_data_k 's'
+0001be 9433                      	inc nletters
+0001bf d061                      	rcall next_line
 0001c0 e609
 0001c1 d07e
-0001c2 d08c                      do_lcd_data_k 'i'
-0001c3 9433                      inc nletters
-0001c4 d05c                      rcall next_line
+0001c2 d08c                      	do_lcd_data_k 'i'
+0001c3 9433                      	inc nletters
+0001c4 d05c                      	rcall next_line
 0001c5 e60f
 0001c6 d079
-0001c7 d087                      do_lcd_data_k 'o'
-0001c8 9433                      inc nletters
-0001c9 d057                      rcall next_line
+0001c7 d087                      	do_lcd_data_k 'o'
+0001c8 9433                      	inc nletters
+0001c9 d057                      	rcall next_line
 0001ca e60e
 0001cb d074
-0001cc d082                      do_lcd_data_k 'n'
-0001cd 9433                      inc nletters
-0001ce c0a2                      rjmp loop
+0001cc d082                      	do_lcd_data_k 'n'
+0001cd 9433                      	inc nletters
+0001ce c0a2                      	rjmp loop
                                  
                                  
                                  
                                  end_calculation:
-                                 ;ldi r30, low(sec_num)
-                                 ;ldi r31, high(sec_num)
-                                 ;clr a
-                                 ;st Z,a
-                                 ;std Z+1,a
-0001cf d051                      rcall next_line
+                                 	;ldi r30, low(sec_num)
+                                 	;ldi r31, high(sec_num)
+                                 	;clr a
+                                 	;st Z,a
+                                 	;std Z+1,a
+0001cf d051                      	rcall next_line
 0001d0 e30d
 0001d1 d06e
-0001d2 d07c                      do_lcd_data_k '='
-0001d3 9433                      inc nletters
-                                 print_result:
-0001d4 e0e4                      ldi r30, low(result)
-0001d5 e0f2                      ldi r31, high(result)
-0001d6 8090                      ld a, Z
-0001d7 80a1                      ldd b, Z+1
-0001d8 e040                      ldi temp2,0
+0001d2 d07c                      	do_lcd_data_k '='
+0001d3 9433                      	inc nletters
+                                 	print_result:
+0001d4 e0e4                      	ldi r30, low(result)
+0001d5 e0f2                      	ldi r31, high(result)
+0001d6 8090                      	ld a, Z
+0001d7 80a1                      	ldd b, Z+1
+0001d8 e040                      	ldi temp2,0
 0001d9 940c 01e1
 0001db d03c
 0001dc 940c 01ec
@@ -2468,7 +2480,7 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
 0001f4 f749
 0001f5 2cb9
 0001f6 2d4b
-0001f7 d020                      print_reg a
+0001f7 d020                      	print_reg a
 0001f8 940c 0200
 0001fa d01d
 0001fb 940c 020b
@@ -2496,53 +2508,54 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
 000213 f749
 000214 2cba
 000215 2d4b
-000216 d001                      print_reg b
-000217 c059                      rjmp loop
+000216 d001                      	print_reg b
+000217 c059                      	rjmp loop
                                  
                                  
                                  print_num:
-000218 d008                      rcall next_line
-000219 2f74                      mov lcd_result, temp2; store the value into lcd output register
-00021a e350                      ldi high_order_bit, HOB_NUM;
-00021b 2b75                      or lcd_result, high_order_bit; OR the high order bit with the value for outputting to lcd.
+000218 d008                      	rcall next_line
+000219 2f74                      	mov lcd_result, temp2; store the value into lcd output register
+00021a e350                      	ldi high_order_bit, HOB_NUM;
+00021b 2b75                      	or lcd_result, high_order_bit; OR the high order bit with the value for outputting to lcd.
 00021c 2f07
 00021d d022
-00021e d030                      do_lcd_data_r lcd_result; output the value to the LCD
-00021f 9433                      inc nletters
-000220 9508                      ret
+00021e d030                      	do_lcd_data_r lcd_result; output the value to the LCD
+00021f 9433                      	inc nletters
+000220 9508                      	ret
                                  
                                  
                                  
                                  
                                  next_line:
-000221 e140                      ldi temp2,16
-000222 1634                      cp nletters,temp2
-000223 f021                      breq go_next
-000224 e240                      ldi temp2,32
-000225 1634                      cp nletters,temp2
-000226 f039                      breq go_first
-000227 9508                      ret
+000221 e140                      	ldi temp2,16
+000222 1634                      	cp nletters,temp2
+000223 f021                      	breq go_next
+000224 e240                      	ldi temp2,32
+000225 1634                      	cp nletters,temp2
+000226 f039                      	breq go_first
+000227 9508                      	ret
+                                 
                                  go_next:
-000228 9817                      lcd_clr LCD_RS
-000229 9815                      lcd_clr LCD_RW
+000228 9817                      	lcd_clr LCD_RS
+000229 9815                      	lcd_clr LCD_RW
 00022a ec00
 00022b d009
-00022c d022                      do_lcd_command 0b11000000
-00022d 9508                      ret
+00022c d022                      	do_lcd_command 0b11000000
+00022d 9508                      	ret
+                                 
                                  go_first:
-00022e 9817                      lcd_clr LCD_RS
-00022f 9815                      lcd_clr LCD_RW
+00022e 9817                      	lcd_clr LCD_RS
+00022f 9815                      	lcd_clr LCD_RW
 000230 e001
 000231 d003
-000232 d01c                      do_lcd_command 0b00000001
-000233 2433                      clr nletters
-000234 9508                      ret
-                                  ;LCD MACRO AND OTHER FUNCTIONS
-                                 .equ LCD_RS = 7
-                                 .equ LCD_E = 6
-                                 .equ LCD_RW = 5
-                                 .equ LCD_BE = 4
-                                 
+000232 d01c                      	do_lcd_command 0b00000001
+000233 2433                      	clr nletters
+000234 9508                      	ret
+                                 	 ;LCD MACRO AND OTHER FUNCTIONS
+                                 	.equ LCD_RS = 7
+                                 	.equ LCD_E = 6
+                                 	.equ LCD_RW = 5
+                                 	.equ LCD_BE = 4
                                  
                                  ;
                                  ; Send a command to the LCD (r16)
@@ -2625,7 +2638,7 @@ C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4C\main.asm(2): Including file 
 000270 9508                      	ret
                                  
                                  loop:
-000271 cfff                      rjmp loop
+000271 cfff                      	rjmp loop
                                  
 
 

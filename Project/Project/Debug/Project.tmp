@@ -1,0 +1,140 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\Debug\Project.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Project.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Project.map</FILE>
+  <FILE>Project.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <name_list><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>88</LINE></name_list>
+  <time_list><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>89</LINE></time_list>
+  <TempCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>90</LINE></TempCounter>
+  <RESET><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>106</LINE></RESET>
+  <EXT_INT0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>200</LINE></EXT_INT0>
+  <EXT_INT1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>212</LINE></EXT_INT1>
+  <Timer0OVF><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1013</LINE></Timer0OVF>
+  <lcd_command><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1247</LINE></lcd_command>
+  <lcd_wait><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1277</LINE></lcd_wait>
+  <sleep_5ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1316</LINE></sleep_5ms>
+  <sleep_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1304</LINE></sleep_1ms>
+  <step0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>184</LINE></step0>
+  <main><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>483</LINE></main>
+  <lcd_data><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1260</LINE></lcd_data>
+  <step1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>227</LINE></step1>
+  <print_ten3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>278</LINE></print_ten3>
+  <back_from_future><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>268</LINE></back_from_future>
+  <step2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>284</LINE></step2>
+  <print_ten1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>316</LINE></print_ten1>
+  <back_from_fir_arg><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>295</LINE></back_from_fir_arg>
+  <print_ten2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>320</LINE></print_ten2>
+  <back_to_one><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>311</LINE></back_to_one>
+  <back_from_sec_arg><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>308</LINE></back_from_sec_arg>
+  <step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>326</LINE></step3>
+  <step4><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>372</LINE></step4>
+  <to_for_ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>393</LINE></to_for_ten>
+  <for_ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>444</LINE></for_ten>
+  <to_back_ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>395</LINE></to_back_ten>
+  <back_ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>458</LINE></back_ten>
+  <step5><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>399</LINE></step5>
+  <back_from_ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>407</LINE></back_from_ten>
+  <to_step0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>463</LINE></to_step0>
+  <to_step1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>465</LINE></to_step1>
+  <to_step2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>467</LINE></to_step2>
+  <to_step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>469</LINE></to_step3>
+  <to_step4><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>471</LINE></to_step4>
+  <clear_display><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>475</LINE></clear_display>
+  <end_clear><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>488</LINE></end_clear>
+  <sleep_100ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1331</LINE></sleep_100ms>
+  <scan_start><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>490</LINE></scan_start>
+  <colloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>494</LINE></colloop>
+  <delay><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>500</LINE></delay>
+  <nextcol><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>525</LINE></nextcol>
+  <rowloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>510</LINE></rowloop>
+  <skipconv><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>520</LINE></skipconv>
+  <convert><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>544</LINE></convert>
+  <letters><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>599</LINE></letters>
+  <symbols><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>590</LINE></symbols>
+  <to_num_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>632</LINE></to_num_key>
+  <to_skip_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>638</LINE></to_skip_key>
+  <to_normal_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>636</LINE></to_normal_key>
+  <to_more_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>634</LINE></to_more_key>
+  <to_star><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>662</LINE></to_star>
+  <to_zero><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>660</LINE></to_zero>
+  <store_next><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>798</LINE></store_next>
+  <end_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>615</LINE></end_key>
+  <convert_end><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>784</LINE></convert_end>
+  <name_full><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>628</LINE></name_full>
+  <skip_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>703</LINE></skip_key>
+  <num_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>642</LINE></num_key>
+  <more_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>720</LINE></more_key>
+  <normal_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>710</LINE></normal_key>
+  <set_stat_num><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>686</LINE></set_stat_num>
+  <set_trans_time><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>667</LINE></set_trans_time>
+  <set_stop_time><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>677</LINE></set_stop_time>
+  <zero><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>761</LINE></zero>
+  <star><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>734</LINE></star>
+  <set_lcd_num><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>695</LINE></set_lcd_num>
+  <to_set_stop_time><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>730</LINE></to_set_stop_time>
+  <to_to_skip_key><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>754</LINE></to_to_skip_key>
+  <to_set_trans_time><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>757</LINE></to_set_trans_time>
+  <preserve><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>790</LINE></preserve>
+  <store_step0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>825</LINE></store_step0>
+  <store_step1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>862</LINE></store_step1>
+  <store_step2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>900</LINE></store_step2>
+  <to_store_step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>856</LINE></to_store_step3>
+  <end_store_next><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>820</LINE></end_store_next>
+  <to_store_step5><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>858</LINE></to_store_step5>
+  <error_step0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>851</LINE></error_step0>
+  <end_store_step0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>840</LINE></end_store_step0>
+  <store_step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>935</LINE></store_step3>
+  <store_step5><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>974</LINE></store_step5>
+  <full_name2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>871</LINE></full_name2>
+  <end_store_step10><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>875</LINE></end_store_step10>
+  <end_store_step11><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>884</LINE></end_store_step11>
+  <error_step2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>927</LINE></error_step2>
+  <end_store_step20><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>912</LINE></end_store_step20>
+  <end_store_step21><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>922</LINE></end_store_step21>
+  <lower_error_step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>963</LINE></lower_error_step3>
+  <higher_error_step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>968</LINE></higher_error_step3>
+  <end_store_step3><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>955</LINE></end_store_step3>
+  <timer0_start><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>994</LINE></timer0_start>
+  <change_stop_now><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>984</LINE></change_stop_now>
+  <light><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1007</LINE></light>
+  <back_from_light><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1047</LINE></back_from_light>
+  <go_stop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1103</LINE></go_stop>
+  <back_from_stop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1028</LINE></back_from_stop>
+  <NotSecond><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1079</LINE></NotSecond>
+  <return_from_op><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1074</LINE></return_from_op>
+  <wait_five><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1107</LINE></wait_five>
+  <go_stop_time><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1093</LINE></go_stop_time>
+  <print_station><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1141</LINE></print_station>
+  <End_Timer0OVF><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1083</LINE></End_Timer0OVF>
+  <stop_rolling><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1236</LINE></stop_rolling>
+  <print_step4><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1137</LINE></print_step4>
+  <go_print><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1150</LINE></go_print>
+  <start_rolling><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1225</LINE></start_rolling>
+  <print_step5><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1218</LINE></print_step5>
+  <name_loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1195</LINE></name_loop>
+  <reset_stat><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1160</LINE></reset_stat>
+  <set_next_stop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1188</LINE></set_next_stop>
+  <lcd_wait_loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1284</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1309</LINE></delayloop_1ms>
+  <sleep_20ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Project\Project\main.asm</FILE><LINE>1324</LINE></sleep_20ms>
+ </LABELS>
+</ASSEMBLER_INFO>

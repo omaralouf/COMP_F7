@@ -25,21 +25,21 @@
   <TempCounter><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>47</LINE></TempCounter>
   <RESET><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>60</LINE></RESET>
   <Timer0OVF><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>95</LINE></Timer0OVF>
-  <lcd_command><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>191</LINE></lcd_command>
-  <lcd_wait><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>221</LINE></lcd_wait>
-  <sleep_5ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>260</LINE></sleep_5ms>
-  <sleep_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>248</LINE></sleep_1ms>
-  <lcd_data><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>204</LINE></lcd_data>
-  <main><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>172</LINE></main>
+  <lcd_command><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>185</LINE></lcd_command>
+  <lcd_wait><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>215</LINE></lcd_wait>
+  <sleep_5ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>254</LINE></sleep_5ms>
+  <sleep_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>242</LINE></sleep_1ms>
+  <lcd_data><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>198</LINE></lcd_data>
+  <main><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>168</LINE></main>
   <NotSecond><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>116</LINE></NotSecond>
-  <incsec2><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>146</LINE></incsec2>
+  <incsec2><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>143</LINE></incsec2>
   <timeset><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>131</LINE></timeset>
   <EndIF><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>121</LINE></EndIF>
-  <incmin1><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>153</LINE></incmin1>
-  <incmin2><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>160</LINE></incmin2>
-  <timereset><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>167</LINE></timereset>
-  <end><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>182</LINE></end>
-  <lcd_wait_loop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>228</LINE></lcd_wait_loop>
-  <delayloop_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>253</LINE></delayloop_1ms>
+  <incmin1><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>150</LINE></incmin1>
+  <incmin2><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>157</LINE></incmin2>
+  <timereset><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>164</LINE></timereset>
+  <end><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>178</LINE></end>
+  <lcd_wait_loop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>222</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Lab4A\main.asm</FILE><LINE>247</LINE></delayloop_1ms>
  </LABELS>
 </ASSEMBLER_INFO>

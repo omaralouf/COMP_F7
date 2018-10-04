@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\Debug\Lab5B.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Lab5B.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Lab5B.map</FILE>
+  <FILE>Lab5B.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>58</LINE></RESET>
+  <EXT_INT0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>100</LINE></EXT_INT0>
+  <EXT_INT1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>167</LINE></EXT_INT1>
+  <main><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>164</LINE></main>
+  <max_speed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>145</LINE></max_speed>
+  <skip><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>159</LINE></skip>
+  <ret_maxmin><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>139</LINE></ret_maxmin>
+  <end><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>155</LINE></end>
+  <min_speed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>204</LINE></min_speed>
+ </LABELS>
+</ASSEMBLER_INFO>

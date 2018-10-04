@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab4\Keypad\main.asm Thu Oct 04 13:52:12 2018
+AVRASM ver. 2.2.7  c:\Users\omara\Documents\Atmel Studio\7.0\Lab3\LCD\main.asm Thu Sep 06 16:47:38 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1359,25 +1359,18 @@ EQU  URXC3addr    0000006c
 EQU  UDRE3addr    0000006e
 EQU  UTXC3addr    00000070
 EQU  INT_VECTORS_SIZE 00000072
-DEF  temp         r16
-DEF  row          r17
-DEF  col          r18
-DEF  mask         r19
-DEF  temp2        r20
-EQU  PORTLDIR     000000f0
-EQU  INITCOLMASK  000000ef
-EQU  INITROWMASK  00000001
-EQU  ROWMASK      0000000f
-CSEG RESET        00000072
-CSEG main         0000007c
-CSEG colloop      0000007e
-CSEG delay        00000081
-CSEG nextcol      00000094
-CSEG rowloop      0000008a
-CSEG skipconv     00000090
-CSEG convert      0000009b
-CSEG letters      000000a6
-CSEG symbols      000000aa
-CSEG convert_end  000000b5
-CSEG star         000000b1
-CSEG zero         000000b4
+CSEG RESET        00000002
+CSEG lcd_command  0000003f
+CSEG lcd_wait     00000059
+CSEG sleep_5ms    00000075
+CSEG sleep_1ms    0000006c
+CSEG lcd_data     0000004a
+CSEG halt         0000003e
+EQU  LCD_RS       00000007
+EQU  LCD_E        00000006
+EQU  LCD_RW       00000005
+EQU  LCD_BE       00000004
+CSEG lcd_wait_loop 0000005e
+EQU  F_CPU        00f42400
+EQU  DELAY_1MS    00000f9c
+CSEG delayloop_1ms 00000070

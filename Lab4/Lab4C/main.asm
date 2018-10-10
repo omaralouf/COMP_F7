@@ -175,6 +175,11 @@ RESET:
 	clr j
 	clr k
 	clr num2
+<<<<<<< HEAD
+=======
+	;clr overflow_flag ; this
+	;Setup the parameters for the debouncing sleep as [250, 150, 10].
+>>>>>>> d8800ab5117e559bbbc54b0d1b00455d9cd3a5f2
 
 	rjmp main
 
@@ -189,6 +194,8 @@ colloop:
 
 delay:
 	dec temp
+	nop
+	nop
 	brne delay
 	LDS temp, PINL ; read PORTL. Cannot use in 
 	andi temp, ROWMASK ; read only the row bits
@@ -448,10 +455,26 @@ invalid:
 	inc nletters
 	rjmp loop
 
+<<<<<<< HEAD
 end_calculation:
 	rcall next_line
 	do_lcd_data_k '='
 	inc nletters
+=======
+
+
+end_calculation: ; these
+	;ldi r30, low(sec_num)
+	;ldi r31, high(sec_num)
+	;clr a
+	;st Z,a
+	;std Z+1,a
+
+	rcall next_line
+	do_lcd_data_k '='
+	inc nletters
+
+>>>>>>> d8800ab5117e559bbbc54b0d1b00455d9cd3a5f2
 print_result:
 	ldi r30, low(result)
 	ldi r31, high(result)

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  c:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm Tue Oct 02 18:37:18 2018
+AVRASM ver. 2.2.7  C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm Thu Oct 11 17:44:52 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1359,4 +1359,46 @@ EQU  URXC3addr    0000006c
 EQU  UDRE3addr    0000006e
 EQU  UTXC3addr    00000070
 EQU  INT_VECTORS_SIZE 00000072
-CSEG start        00000000
+DEF  temp         r16
+DEF  holes        r20
+DEF  mask         r19
+EQU  START_TIME   00000000
+DEF  d_5          r13
+DEF  d_4          r12
+DEF  d_3          r11
+DEF  d_2          r10
+DEF  d_1          r9
+DEF  result_high  r18
+DEF  result_low   r17
+DSEG SecondCounter 00000200
+DSEG TempCounter  00000202
+DSEG RevCounter   00000204
+CSEG RESET        00000033
+CSEG DEFAULT      00000032
+CSEG EXT_INT2     00000083
+CSEG Timer0OVF    0000009e
+CSEG lcd_command  000000e4
+CSEG lcd_wait     000000fe
+CSEG sleep_5ms    0000011a
+CSEG sleep_1ms    00000111
+CSEG lcd_data     000000ef
+CSEG main         000000d0
+CSEG end          00000098
+CSEG NotSecond    000000c5
+CSEG one_tenth_second 000000ae
+CSEG calculation  00000120
+CSEG end_calculation 000000b0
+CSEG EndIF        000000c9
+CSEG end_loop     000000e3
+EQU  LCD_RS       00000007
+EQU  LCD_E        00000006
+EQU  LCD_RW       00000005
+EQU  LCD_BE       00000004
+CSEG lcd_wait_loop 00000103
+EQU  F_CPU        00f42400
+EQU  DELAY_1MS    00000f9c
+CSEG delayloop_1ms 00000115
+CSEG sub_ten_thousand 0000013d
+CSEG sub_thousand 00000146
+CSEG sub_hundred  0000014f
+CSEG sub_ten      00000158

@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega2560"</DEVICE>
- <WORKING_DIR>c:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\Debug\Lab5A.obj</FILE>
+  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\Debug\Lab5A.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>Lab5A.hex</FILE>
@@ -22,6 +22,31 @@
   <FILE>Lab5A.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <start><FILE>c:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>10</LINE></start>
+  <SecondCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>47</LINE></SecondCounter>
+  <TempCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>48</LINE></TempCounter>
+  <RevCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>49</LINE></RevCounter>
+  <RESET><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>63</LINE></RESET>
+  <DEFAULT><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>61</LINE></DEFAULT>
+  <EXT_INT2><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>115</LINE></EXT_INT2>
+  <Timer0OVF><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>143</LINE></Timer0OVF>
+  <lcd_command><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>231</LINE></lcd_command>
+  <lcd_wait><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>261</LINE></lcd_wait>
+  <sleep_5ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>299</LINE></sleep_5ms>
+  <sleep_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>287</LINE></sleep_1ms>
+  <lcd_data><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>244</LINE></lcd_data>
+  <main><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>198</LINE></main>
+  <end><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>133</LINE></end>
+  <NotSecond><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>185</LINE></NotSecond>
+  <one_tenth_second><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>161</LINE></one_tenth_second>
+  <calculation><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>309</LINE></calculation>
+  <end_calculation><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>169</LINE></end_calculation>
+  <EndIF><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>189</LINE></EndIF>
+  <end_loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>209</LINE></end_loop>
+  <lcd_wait_loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>267</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>292</LINE></delayloop_1ms>
+  <sub_ten_thousand><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>342</LINE></sub_ten_thousand>
+  <sub_thousand><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>353</LINE></sub_thousand>
+  <sub_hundred><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>364</LINE></sub_hundred>
+  <sub_ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5A\main.asm</FILE><LINE>375</LINE></sub_ten>
  </LABELS>
 </ASSEMBLER_INFO>

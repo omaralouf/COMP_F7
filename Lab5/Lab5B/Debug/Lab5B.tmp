@@ -22,14 +22,46 @@
   <FILE>Lab5B.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <RESET><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>58</LINE></RESET>
-  <EXT_INT0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>100</LINE></EXT_INT0>
-  <EXT_INT1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>167</LINE></EXT_INT1>
-  <main><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>164</LINE></main>
-  <max_speed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>145</LINE></max_speed>
-  <skip><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>159</LINE></skip>
-  <ret_maxmin><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>139</LINE></ret_maxmin>
-  <end><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>155</LINE></end>
-  <min_speed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>204</LINE></min_speed>
+  <Zero><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>69</LINE></Zero>
+  <DebounceCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>71</LINE></DebounceCounter>
+  <TC><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>74</LINE></TC>
+  <RESET><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>95</LINE></RESET>
+  <PB_0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>164</LINE></PB_0>
+  <PB_1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>176</LINE></PB_1>
+  <motor_speed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>352</LINE></motor_speed>
+  <Timer0OVF><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>188</LINE></Timer0OVF>
+  <DEFAULT><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>91</LINE></DEFAULT>
+  <lcd_command><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>373</LINE></lcd_command>
+  <lcd_wait><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>393</LINE></lcd_wait>
+  <sleep_5ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>425</LINE></sleep_5ms>
+  <sleep_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>413</LINE></sleep_1ms>
+  <main><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>127</LINE></main>
+  <loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>160</LINE></loop>
+  <IncreaseSpeed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>168</LINE></IncreaseSpeed>
+  <return1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>185</LINE></return1>
+  <return0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>173</LINE></return0>
+  <DecreaseSpeed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>180</LINE></DecreaseSpeed>
+  <SetDebounceFlag><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>207</LINE></SetDebounceFlag>
+  <TimeCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>211</LINE></TimeCounter>
+  <NotaSecond><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>250</LINE></NotaSecond>
+  <continue><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>227</LINE></continue>
+  <UpdateTime><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>245</LINE></UpdateTime>
+  <decrease><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>239</LINE></decrease>
+  <UpdateSpeed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>264</LINE></UpdateSpeed>
+  <Endif><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>254</LINE></Endif>
+  <lcd_data><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>382</LINE></lcd_data>
+  <display><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>293</LINE></display>
+  <Dloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>295</LINE></Dloop>
+  <hunderd><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>312</LINE></hunderd>
+  <ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>326</LINE></ten>
+  <go><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>306</LINE></go>
+  <return><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>309</LINE></return>
+  <Hloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>316</LINE></Hloop>
+  <showNumber><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>340</LINE></showNumber>
+  <Tloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>330</LINE></Tloop>
+  <inccount><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>347</LINE></inccount>
+  <back><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>358</LINE></back>
+  <lcd_wait_loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>399</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>418</LINE></delayloop_1ms>
  </LABELS>
 </ASSEMBLER_INFO>

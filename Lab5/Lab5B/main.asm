@@ -3,6 +3,8 @@
 
 .include "m2560def.inc"
 
+; PWM is a way of digitally encoding analog signal levels.
+
 ;=========defining registers=========
 .def temp = r16
 .def speed = r17
@@ -143,7 +145,7 @@ main:
     ori temp, (1<<INT2 | 1<<INT1 | 1<<INT0)
     out EIMSK, temp
 ;=========Set Timer Interrupt========
-	ldi temp, (1<<WGM30)|(1<<COM3B1) ; set the Timer3 to Phase Correct PWM mode (8-bit) aka Mode1
+	ldi temp, (1<<WGM30)|(1<<COM3B1) ; set the Timer3 to Phase Correct PWM mode (8-bit) aka Mode1 / 17.9.4
 	sts TCCR3A, temp 
 	ldi temp, (1<<CS31)
 	sts TCCR3B, temp		; Prescaling value=8

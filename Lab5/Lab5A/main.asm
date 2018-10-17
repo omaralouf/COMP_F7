@@ -14,6 +14,10 @@
  .def result_high = r18
  .def result_low = r17
  
+ ; The detector can be read by using an external interrupt
+ ; The detector will output a 1 when there isn’t a hole, 
+ ; so you can use the falling edge of the detector to trigger 
+ ; an interrupt to count a hole.
 
  ; The macro clears a word (2 bytes) in the data memory
  ; The parameter @0 is the memory address for that word

@@ -1,11 +1,10 @@
 
-AVRASM ver. 2.2.7  C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm Thu Oct 11 17:44:58 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm Thu Oct 18 13:59:26 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(15): warning: Register r30 already defined by the .DEF directive
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm(4): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
                                  
                                  ; Lab5B.asm
                                  
@@ -1892,7 +1891,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ;=========defining registers=========
+                                 ;defining registers
                                  .def temp = r16
                                  .def speed = r17
                                  .def number = r18
@@ -1901,20 +1900,20 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
                                  .def value = r21
                                  .def input = r22
                                  .def target = r23
-                                 .def holes4=r30
+                                 .def holes4= r24
                                  
-                                 ;==========LCD Commands==========
-                                 .set LCD_DISP_ON = 0b00001110
-                                 .set LCD_DISP_OFF = 0b00001000
-                                 .set LCD_DISP_CLR = 0b00000001
+                                 ;LCD Commands
+                                 .equ LCD_DISP_ON = 0b00001110
+                                 .equ LCD_DISP_OFF = 0b00001000
+                                 .equ LCD_DISP_CLR = 0b00000001
                                  
-                                 .set LCD_FUNC_SET = 0b00111000 						; 2 lines, 5 by 7 characters
-                                 .set LCD_ENTR_SET = 0b00000110 						; increment, no display shift
-                                 .set LCD_HOME_LINE = 0b10000000 					; goes to 1st line (address 0)
-                                 .set LCD_SEC_LINE = 0b10101000 						; goes to 2nd line (address 40)
-                                 ;=================================
+                                 .equ LCD_FUNC_SET = 0b00111000 						; 2 lines, 5 by 7 characters
+                                 .equ LCD_ENTR_SET = 0b00000110 						; increment, no display shift
+                                 .equ LCD_HOME_LINE = 0b10000000 					; goes to 1st line (address 0)
+                                 .equ LCD_SEC_LINE = 0b10101000 						; goes to 2nd line (address 40)
                                  
-                                 ;Macro clears a word (2byte) in memory
+                                 
+                                 ;Macro clears 2 bytes in memory
                                  ;Note, @0 is the memory address for the word 
                                  .macro clear
                                  	ldi YL, low(@0)		; load the memory address to Y
@@ -1924,7 +1923,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
                                  	st Y, temp
                                  .endmacro
                                  
-                                 ;============LCD Output Macros===========
+                                 ;LCD Macros
                                  .macro do_lcd_command
                                  	ldi r16, @0
                                  	rcall lcd_command
@@ -1950,32 +1949,27 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
                                  .macro lcd_clr
                                  	cbi PORTA, @0
                                  .endmacro
-                                 ;=========================================
                                  
-                                 ;===========Words==========
                                  .dseg
-                                 .org 0x0200
-                                 Zero:
-000200                           	.byte 1
-                                 DebounceCounter:
-000201                           	.byte 2
-                                 ;==========Two-byte counter for counting second ==========  
-                                 TC:	
-000203                           	.byte 2 
+                                 .org 0x200
+000200                           Zero: .byte 1
+000201                           DebounceCounter: .byte 2
+                                 ;Two-byte counter for counting second 
+000203                           TC: .byte 2 
                                  
                                  .cseg
                                  .org 0x0000
-000000 940c 0033                 	jmp RESET
-                                 .org INT0addr		;Jump to interrupt handler for Ext Int 1
-000002 940c 0087                 	jmp PB_0		
+000000 940c 0033                 jmp RESET
+                                 .org INT0addr		;Jump to interrupt handler for Ext Int 0
+000002 940c 0087                 jmp PB_0		
                                  .org INT1addr		; Jump to interrupt handler for Ext Int 1
-000004 940c 008f                 	jmp PB_1
+000004 940c 008f                 jmp PB_1
                                  .org INT2addr		; Jump to interrupt handler for Ext Int 2
-000006 940c 0158                    jmp motor_speed
+000006 940c 0158                 jmp motor_speed
                                  
                                  .org OVF0addr		; Jump to interrupt handler for Timer0 Overflow
-00002e 940c 0097                 	jmp Timer0OVF	; Jump to the interrupt handler for
-000030 940c 0032                 	jmp DEFAULT		; default service for all other interrupts.
+00002e 940c 0097                 jmp Timer0OVF	; Jump to the interrupt handler for
+000030 940c 0032                 jmp DEFAULT		; default service for all other interrupts.
                                  
 000032 9518                      DEFAULT: reti		; no service
                                  					; continued
@@ -2043,25 +2037,25 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 000068 e100                      	ldi temp, (1<<PE4)		;labeled PE2 actually PE4 
 000069 b90d                      	out DDRE, temp   		;output
 00006a 2700                      	clr temp
-                                 ;==========Timer 3==========
+                                 ;Timer 3
                                  	;ldi temp,0x4A
 00006b 9300 009a                 	sts OCR3BL, temp		;Determine duty free
 00006d 2700                      	clr temp
 00006e 9300 009b                 	sts OCR3BH, temp		
-                                 ;=========Set Interrupt=========
+                                 ;Set Interrupt
 000070 e20a                      	ldi temp, (1 << ISC21 | 1 << ISC11 | 1 << ISC01)      ; set INT2 as falling-edge 
 000071 9300 0069                     sts EICRA, temp             ; edge triggered interrupt
-                                 ;=========Enable Interrupt=========
+                                 ;Enable Interrupt
 000073 b30d                          in temp, EIMSK              ; enable INT2,INT1,INT0
 000074 6007                          ori temp, (1<<INT2 | 1<<INT1 | 1<<INT0)
 000075 bb0d                          out EIMSK, temp
-                                 ;=========Set Timer Interrupt========
-000076 e201                      	ldi temp, (1<<WGM30)|(1<<COM3B1) ; set the Timer3 to Phase Correct PWM mode (8-bit) aka Mode1
+                                 ;Set Timer Interrupt
+000076 e201                      	ldi temp, (1<<WGM30)|(1<<COM3B1) ; set the Timer3 to Phase Correct PWM mode (8-bit) aka Mode1 / 17.9.4
 000077 9300 0090                 	sts TCCR3A, temp 
 000079 e002                      	ldi temp, (1<<CS31)
 00007a 9300 0091                 	sts TCCR3B, temp		; Prescaling value=8
 00007c 2700                      	clr temp
-                                 ;==========Timer0=========
+                                 ;Timer0
 00007d bd04                      	out TCCR0A, temp		;Loading 0 into temp register
 00007e e002                      	ldi temp, (1<<CS01)
 00007f bd05                      	out TCCR0B, temp		; Prescaling value=8
@@ -2073,7 +2067,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
                                  loop:
 000086 cfff                      	rjmp loop
                                  
-                                 ;=========Interrupt 1=========
+                                 ;Interrupt 1
                                  PB_0:
 000087 3040                      	cpi flag,0	; Check if the DebounceFlag is enabled
 000088 f009                      	breq IncreaseSpeed
@@ -2085,7 +2079,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 00008d 5e7c                      	subi target,-20			;Increasing 20 for target value
                                  return0:
 00008e 9518                      	reti
-                                 ;==========Interrupt 2=========
+                                 ;Interrupt 2
                                  PB_1:
 00008f 3040                      	cpi flag,0	; Check if the DebounceFlag is enabled
 000090 f009                      	breq DecreaseSpeed
@@ -2105,7 +2099,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 00009a 93cf                      	push YL
 00009b 939f                      	push r25
 00009c 938f                      	push r24
-                                 ;==========Update Debounce Flag===========
+                                 ;Update Debounce Flag
 00009d 9180 0201                 	lds R24,DebounceCounter
 00009f 9190 0202                 	lds R25,DebounceCounter+1
 0000a1 9601                      	adiw r25:r24,1 
@@ -2134,7 +2128,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 0000b8 0780                      	cpc r24, temp
 0000b9 f4f1                      	brne NotaSecond
                                  	
-                                 ;==========Update The Speed============
+                                 ;Update The Speed
 0000ba 3070                      	cpi target, 0
 0000bb f421                      	brne continue
 0000bc 2766                      	clr input
@@ -2181,7 +2175,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 0000e1 bf0f                      	out SREG, temp
 0000e2 9518                      	reti
                                  
-                                 ;========= Completing the Display=========
+                                 ; Display
                                  UpdateSpeed:
 0000e3 e001
 0000e4 d07b
@@ -2246,7 +2240,7 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 00011f d001                      	rcall display
 000120 9508                      	ret
                                  
-                                 ;========== Displaying the numbers=========
+                                 ; Displaying the numbers
                                  display:
 000121 931f                      	push speed
                                  Dloop:
@@ -2306,24 +2300,24 @@ C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm(4): Including file
 000152 2722                      	clr number
 000153 cfce                      	rjmp Dloop
                                  
-                                 ;=========Counting the number of revolutions=========
+                                 ;Counting the number of revolutions
                                  inccount:
 000154 9553                      	inc value				;Holds the number of times it does a full revolution
-000155 27ee                      	clr holes4
+000155 2788                      	clr holes4
 000156 940c 015d                 	jmp back
                                  
                                  motor_speed:
 000158 b70f                      	in temp, SREG
 000159 930f                      	push temp
-00015a 95e3                      	inc holes4
-00015b 30e4                      	cpi holes4,4
+00015a 9583                      	inc holes4
+00015b 3084                      	cpi holes4,4
 00015c f3b9                      	breq inccount
                                  	back:
 00015d 910f                      	pop temp
 00015e bf0f                      	out SREG, temp
 00015f 9518                      	reti
                                  	
-                                 ;==========LCD Display Code Below (Note r16)==========
+                                 ;LCD Display Code Below (Note r16)
                                  ; Delay Constants
                                  .equ F_CPU = 16000000
                                  .equ DELAY_1MS = F_CPU / 4 / 1000 - 4 				; 4 cycles per iteration - setup/call-return overhead
@@ -2412,9 +2406,9 @@ counted separately from r26..r31 here.
 x  :   0 y  :   8 z  :   0 r0 :   1 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
 r13:   0 r14:   0 r15:   0 r16: 103 r17:  15 r18:   8 r19:   7 r20:   5 
-r21:   4 r22:  11 r23:   9 r24:  14 r25:  14 r26:   0 r27:   0 r28:   6 
-r29:   6 r30:   3 r31:   0 
-Registers used: 15 out of 35 (42.9%)
+r21:   4 r22:  11 r23:   9 r24:  17 r25:  14 r26:   0 r27:   0 r28:   6 
+r29:   6 r30:   0 r31:   0 
+Registers used: 14 out of 35 (40.0%)
 
 "ATmega2560" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   2 and   :   0 
@@ -2446,4 +2440,4 @@ Segment   Begin    End      Code   Data   Used    Size   Use%
 [.dseg] 0x000200 0x000205      0      5      5    8192   0.1%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 
-Assembly complete, 0 errors, 1 warnings
+Assembly complete, 0 errors, 0 warnings

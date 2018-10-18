@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega2560"</DEVICE>
- <WORKING_DIR>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\Debug\Lab5B.obj</FILE>
+  <FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\Debug\Lab5B.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>Lab5B.hex</FILE>
@@ -22,46 +22,46 @@
   <FILE>Lab5B.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <Zero><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>69</LINE></Zero>
-  <DebounceCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>71</LINE></DebounceCounter>
-  <TC><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>74</LINE></TC>
-  <RESET><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>95</LINE></RESET>
-  <PB_0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>164</LINE></PB_0>
-  <PB_1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>176</LINE></PB_1>
-  <motor_speed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>352</LINE></motor_speed>
-  <Timer0OVF><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>188</LINE></Timer0OVF>
-  <DEFAULT><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>91</LINE></DEFAULT>
-  <lcd_command><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>373</LINE></lcd_command>
-  <lcd_wait><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>393</LINE></lcd_wait>
-  <sleep_5ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>425</LINE></sleep_5ms>
-  <sleep_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>413</LINE></sleep_1ms>
-  <main><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>127</LINE></main>
-  <loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>160</LINE></loop>
-  <IncreaseSpeed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>168</LINE></IncreaseSpeed>
-  <return1><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>185</LINE></return1>
-  <return0><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>173</LINE></return0>
-  <DecreaseSpeed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>180</LINE></DecreaseSpeed>
-  <SetDebounceFlag><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>207</LINE></SetDebounceFlag>
-  <TimeCounter><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>211</LINE></TimeCounter>
-  <NotaSecond><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>250</LINE></NotaSecond>
-  <continue><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>227</LINE></continue>
-  <UpdateTime><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>245</LINE></UpdateTime>
-  <decrease><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>239</LINE></decrease>
-  <UpdateSpeed><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>264</LINE></UpdateSpeed>
-  <Endif><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>254</LINE></Endif>
-  <lcd_data><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>382</LINE></lcd_data>
-  <display><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>293</LINE></display>
-  <Dloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>295</LINE></Dloop>
-  <hunderd><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>312</LINE></hunderd>
-  <ten><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>326</LINE></ten>
-  <go><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>306</LINE></go>
-  <return><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>309</LINE></return>
-  <Hloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>316</LINE></Hloop>
-  <showNumber><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>340</LINE></showNumber>
-  <Tloop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>330</LINE></Tloop>
-  <inccount><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>347</LINE></inccount>
-  <back><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>358</LINE></back>
-  <lcd_wait_loop><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>399</LINE></lcd_wait_loop>
-  <delayloop_1ms><FILE>C:\Users\omara\Documents\Atmel Studio\7.0\Lab5\Lab5B\main.asm</FILE><LINE>418</LINE></delayloop_1ms>
+  <Zero><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>67</LINE></Zero>
+  <DebounceCounter><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>68</LINE></DebounceCounter>
+  <TC><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>70</LINE></TC>
+  <RESET><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>90</LINE></RESET>
+  <PB_0><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>159</LINE></PB_0>
+  <PB_1><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>171</LINE></PB_1>
+  <motor_speed><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>347</LINE></motor_speed>
+  <Timer0OVF><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>183</LINE></Timer0OVF>
+  <DEFAULT><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>86</LINE></DEFAULT>
+  <lcd_command><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>368</LINE></lcd_command>
+  <lcd_wait><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>388</LINE></lcd_wait>
+  <sleep_5ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>420</LINE></sleep_5ms>
+  <sleep_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>408</LINE></sleep_1ms>
+  <main><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>122</LINE></main>
+  <loop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>155</LINE></loop>
+  <IncreaseSpeed><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>163</LINE></IncreaseSpeed>
+  <return1><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>180</LINE></return1>
+  <return0><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>168</LINE></return0>
+  <DecreaseSpeed><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>175</LINE></DecreaseSpeed>
+  <SetDebounceFlag><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>202</LINE></SetDebounceFlag>
+  <TimeCounter><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>206</LINE></TimeCounter>
+  <NotaSecond><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>245</LINE></NotaSecond>
+  <continue><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>222</LINE></continue>
+  <UpdateTime><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>240</LINE></UpdateTime>
+  <decrease><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>234</LINE></decrease>
+  <UpdateSpeed><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>259</LINE></UpdateSpeed>
+  <Endif><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>249</LINE></Endif>
+  <lcd_data><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>377</LINE></lcd_data>
+  <display><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>288</LINE></display>
+  <Dloop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>290</LINE></Dloop>
+  <hunderd><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>307</LINE></hunderd>
+  <ten><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>321</LINE></ten>
+  <go><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>301</LINE></go>
+  <return><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>304</LINE></return>
+  <Hloop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>311</LINE></Hloop>
+  <showNumber><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>335</LINE></showNumber>
+  <Tloop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>325</LINE></Tloop>
+  <inccount><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>342</LINE></inccount>
+  <back><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>353</LINE></back>
+  <lcd_wait_loop><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>394</LINE></lcd_wait_loop>
+  <delayloop_1ms><FILE>C:\Users\balabi\Documents\GitHub\COMP_F7\Lab5\Lab5B\main.asm</FILE><LINE>413</LINE></delayloop_1ms>
  </LABELS>
 </ASSEMBLER_INFO>

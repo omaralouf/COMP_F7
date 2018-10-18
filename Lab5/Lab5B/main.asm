@@ -3,9 +3,7 @@
 
 .include "m2560def.inc"
 
-; PWM is a way of digitally encoding analog signal levels.
-
-;=========defining registers=========
+;defining registers
 .def temp = r16
 .def speed = r17
 .def number = r18
@@ -14,20 +12,20 @@
 .def value = r21
 .def input = r22
 .def target = r23
-.def holes4=r30
+.def holes4= r24
 
-;==========LCD Commands==========
-.set LCD_DISP_ON = 0b00001110
-.set LCD_DISP_OFF = 0b00001000
-.set LCD_DISP_CLR = 0b00000001
+;LCD Commands
+.equ LCD_DISP_ON = 0b00001110
+.equ LCD_DISP_OFF = 0b00001000
+.equ LCD_DISP_CLR = 0b00000001
 
-.set LCD_FUNC_SET = 0b00111000 						; 2 lines, 5 by 7 characters
-.set LCD_ENTR_SET = 0b00000110 						; increment, no display shift
-.set LCD_HOME_LINE = 0b10000000 					; goes to 1st line (address 0)
-.set LCD_SEC_LINE = 0b10101000 						; goes to 2nd line (address 40)
-;=================================
+.equ LCD_FUNC_SET = 0b00111000 						; 2 lines, 5 by 7 characters
+.equ LCD_ENTR_SET = 0b00000110 						; increment, no display shift
+.equ LCD_HOME_LINE = 0b10000000 					; goes to 1st line (address 0)
+.equ LCD_SEC_LINE = 0b10101000 						; goes to 2nd line (address 40)
 
-;Macro clears a word (2byte) in memory
+
+;Macro clears 2 bytes in memory
 ;Note, @0 is the memory address for the word 
 .macro clear
 	ldi YL, low(@0)		; load the memory address to Y
@@ -37,7 +35,7 @@
 	st Y, temp
 .endmacro
 
-;============LCD Output Macros===========
+;LCD Macros
 .macro do_lcd_command
 	ldi r16, @0
 	rcall lcd_command
@@ -63,32 +61,27 @@
 .macro lcd_clr
 	cbi PORTA, @0
 .endmacro
-;=========================================
 
-;===========Words==========
 .dseg
-.org 0x0200
-Zero:
-	.byte 1
-DebounceCounter:
-	.byte 2
-;==========Two-byte counter for counting second ==========  
-TC:	
-	.byte 2 
+.org 0x200
+Zero: .byte 1
+DebounceCounter: .byte 2
+;Two-byte counter for counting second 
+TC: .byte 2 
 
 .cseg
 .org 0x0000
-	jmp RESET
-.org INT0addr		;Jump to interrupt handler for Ext Int 1
-	jmp PB_0		
+jmp RESET
+.org INT0addr		;Jump to interrupt handler for Ext Int 0
+jmp PB_0		
 .org INT1addr		; Jump to interrupt handler for Ext Int 1
-	jmp PB_1
+jmp PB_1
 .org INT2addr		; Jump to interrupt handler for Ext Int 2
-   jmp motor_speed
+jmp motor_speed
 
 .org OVF0addr		; Jump to interrupt handler for Timer0 Overflow
-	jmp Timer0OVF	; Jump to the interrupt handler for
-	jmp DEFAULT		; default service for all other interrupts.
+jmp Timer0OVF	; Jump to the interrupt handler for
+jmp DEFAULT		; default service for all other interrupts.
 
 DEFAULT: reti		; no service
 					; continued
@@ -132,25 +125,25 @@ main:
 	ldi temp, (1<<PE4)		;labeled PE2 actually PE4 
 	out DDRE, temp   		;output
 	clr temp
-;==========Timer 3==========
+;Timer 3
 	;ldi temp,0x4A
 	sts OCR3BL, temp		;Determine duty free
 	clr temp
 	sts OCR3BH, temp		
-;=========Set Interrupt=========
+;Set Interrupt
 	ldi temp, (1 << ISC21 | 1 << ISC11 | 1 << ISC01)      ; set INT2 as falling-edge 
     sts EICRA, temp             ; edge triggered interrupt
-;=========Enable Interrupt=========
+;Enable Interrupt
     in temp, EIMSK              ; enable INT2,INT1,INT0
     ori temp, (1<<INT2 | 1<<INT1 | 1<<INT0)
     out EIMSK, temp
-;=========Set Timer Interrupt========
+;Set Timer Interrupt
 	ldi temp, (1<<WGM30)|(1<<COM3B1) ; set the Timer3 to Phase Correct PWM mode (8-bit) aka Mode1 / 17.9.4
 	sts TCCR3A, temp 
 	ldi temp, (1<<CS31)
 	sts TCCR3B, temp		; Prescaling value=8
 	clr temp
-;==========Timer0=========
+;Timer0
 	out TCCR0A, temp		;Loading 0 into temp register
 	ldi temp, (1<<CS01)
 	out TCCR0B, temp		; Prescaling value=8
@@ -162,7 +155,7 @@ main:
 loop:
 	rjmp loop
 
-;=========Interrupt 1=========
+;Interrupt 1
 PB_0:
 	cpi flag,0	; Check if the DebounceFlag is enabled
 	breq IncreaseSpeed
@@ -174,7 +167,7 @@ IncreaseSpeed:
 	subi target,-20			;Increasing 20 for target value
 return0:
 	reti
-;==========Interrupt 2=========
+;Interrupt 2
 PB_1:
 	cpi flag,0	; Check if the DebounceFlag is enabled
 	breq DecreaseSpeed
@@ -194,7 +187,7 @@ Timer0OVF:
 	push YL
 	push r25
 	push r24
-;==========Update Debounce Flag===========
+;Update Debounce Flag
 	lds R24,DebounceCounter
 	lds R25,DebounceCounter+1
 	adiw r25:r24,1 
@@ -219,7 +212,7 @@ TimeCounter:
 	cpc r24, temp
 	brne NotaSecond
 	
-;==========Update The Speed============
+;Update The Speed
 	cpi target, 0
 	brne continue
 	clr input
@@ -262,7 +255,7 @@ Endif:
 	out SREG, temp
 	reti
 
-;========= Completing the Display=========
+; Display
 UpdateSpeed:
 	do_lcd_command LCD_DISP_CLR
 	do_lcd_command LCD_HOME_LINE
@@ -291,7 +284,7 @@ UpdateSpeed:
 	rcall display
 	ret
 
-;========== Displaying the numbers=========
+; Displaying the numbers
 display:
 	push speed
 Dloop:
@@ -345,7 +338,7 @@ showNumber:
 	clr number
 	rjmp Dloop
 
-;=========Counting the number of revolutions=========
+;Counting the number of revolutions
 inccount:
 	inc value				;Holds the number of times it does a full revolution
 	clr holes4
@@ -362,7 +355,7 @@ motor_speed:
 	out SREG, temp
 	reti
 	
-;==========LCD Display Code Below (Note r16)==========
+;LCD Display Code Below (Note r16)
 ; Delay Constants
 .equ F_CPU = 16000000
 .equ DELAY_1MS = F_CPU / 4 / 1000 - 4 				; 4 cycles per iteration - setup/call-return overhead

@@ -65,17 +65,13 @@ jmp DEFAULT ; default service for all other interrupts.
 DEFAULT: reti ; no interrupt handling 
  
 RESET: 
-/*ldi secd, 0
-ldi mins, 0*/
 ldi temp, high(RAMEND) ; initialize the stack pointer SP
 out SPH, temp
 ldi temp, low(RAMEND)
 out SPL, temp
-/*ser temp ; set Port C as output
-out DDRC, temp*/
 clr r16
 out DDRD, r16
-out PORTD, temp
+out PORTD, temp			; for pull-out resistors/registers, set to all 0's to enable
 ldi temp, (2 << ISC20) 
 sts EICRA, temp
 in temp, EIMSK
@@ -115,7 +111,6 @@ do_lcd_data '0'
 rjmp main ; jump to main program
 
 
-
 EXT_INT2:
 push temp
 in temp, SREG
@@ -142,8 +137,6 @@ out SREG, temp
 pop temp
 reti
 
-
-
 Timer0OVF: ; interrupt subroutine to Timer0
 in temp, SREG
 push temp ; prologue starts
@@ -155,28 +148,21 @@ push r24 ; prologue ends
 lds r24, TempCounter
 lds r25, TempCounter+1
 adiw r25:r24, 1 ; increase the temporary counter by one
-cpi r24, low(781) ; check if (r25:r24) = 7812
-ldi temp, high(781) ; 7812 = 10^6/128
+cpi r24, low(61)
+ldi temp, high(61) 
 cpc r25, temp
 brne NotSecond
  
 rjmp one_tenth_second
 
 one_tenth_second:
-/*inc secd
-cpi secd, 60
-brne continue
-ldi secd, 0
-inc mins
-continue:*/
 jmp calculation
+
 end_calculation:
 ldi r22, 0
 ldi r23, 0
 sts RevCounter, r22
 sts RevCounter+1, r23
-/*ldi r16, 49
-display*/
 clear_2 TempCounter ; reset the temporary counter
 ; Load the value of the second counter
 lds r24, SecondCounter
@@ -205,15 +191,13 @@ clear_2 TempCounter ; initialize the temporary counter to 0
 clear_2 SecondCounter ; initialize the second counter to 0
 ldi temp, 0b00000000
 out TCCR0A, temp
-ldi temp, 0b00000010
-out TCCR0B, temp ; set prescalar value to 8
+ldi temp, 0b00000101
+out TCCR0B, temp
 ldi temp, 1<<TOIE0 ; TOIE0 is the bit number of TOIE0 which is 0
 sts TIMSK0, temp ; enable Timer0 Overflow Interrupt
 sei ; enable global interrupt
 end_loop: 
 rjmp end_loop ; loop forever
-
-
 
 
 .equ LCD_RS = 7
@@ -309,7 +293,6 @@ sleep_5ms:
 	ret
 
 
-
 calculation:
 ldi temp, low(10000)
 mov r3, temp
@@ -337,11 +320,6 @@ mov result_high, temp
 clr temp
 sts SecondCounter, temp
 sts SecondCounter+1, temp
-/*ldi r25, 0b11111111
-mov result_low, r25
-ldi r25, 0b111111
-mov result_high, r25
-ldi r25, 0*/
 
 sub_ten_thousand:
 sub result_low, r3
@@ -387,17 +365,9 @@ add result_low, r8
 adc result_high, r25
 dec d_2
 
-mov d_1, result_low
+mov d_1, result_low ; sub_one
 
 
-
-/*do_lcd_command 0b00111000 ; 2x5x7
-rcall sleep_5ms
-do_lcd_command 0b00111000 ; 2x5x7
-rcall sleep_1ms
-do_lcd_command 0b00111000 ; 2x5x7
-do_lcd_command 0b00111000 ; 2x5x7
-do_lcd_command 0b00001000 ; display off?*/
 do_lcd_command 0b00000001 ; clear display
 do_lcd_command 0b00000110 ; increment, no display shift
 do_lcd_command 0b00001110 ; Cursor on, bar, no blink
@@ -429,7 +399,6 @@ mov r16, d_1
 add r16, r27
 display
 
-do_lcd_data '0'
 do_lcd_data ' '
 do_lcd_data 'r'
 do_lcd_data '/'

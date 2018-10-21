@@ -90,9 +90,6 @@ time_list: .byte 10					;use 10 bytes to store the transfer time, 1 byte for eac
 TempCounter: .byte 2
 
 
-
-sts
-
 .cseg
 jmp RESET
 .org INT0addr     
@@ -133,14 +130,14 @@ do_lcd_command 0b00000001 ; clear display
 do_lcd_command 0b00000110 ; increment, no display shift
 do_lcd_command 0b00001110 ; Cursor on, bar, no blink
 
-ser temp
-out DDRE, temp; set PORTE as output
+ldi temp, (1<<PE4)		; PE is labeled as PE$
+out DDRE, temp
 ;ldi temp, 0b00000100; this value and the operation mode determines the PWM duty cycle
 ldi temp,0
 sts OCR3BL, temp;OC3B low register
 clr temp
 sts OCR3BH, temp;0C3B high register
-ldi temp, (1<<CS30) ; CS30 = 1: no prescaling
+ldi temp, (1<<CS31) ; CS30 = 1: no prescaling
 sts TCCR3B, temp; set the prescaling value
 ldi temp, (1<<WGM30)|(1<<COM3B1)
 ; WGM30=1: phase correct PWM, 8 bits
@@ -203,6 +200,8 @@ in temp, SREG
 push temp 
 ldi temp2,1
 mov to_stop,temp2
+ser temp
+out PORTC, temp
 pop temp 
 out SREG, temp 
 pop temp 

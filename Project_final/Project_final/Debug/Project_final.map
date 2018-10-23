@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm Tue Oct 23 14:55:05 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm Tue Oct 23 15:23:24 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1406,13 +1406,13 @@ CSEG not_running0 0000008c
 CSEG not_running1 00000098
 CSEG continue_time_check 000000c1
 CSEG blink        000000bc
-CSEG End_T0OVF    000000f3
 CSEG Not_a_second 000000ef
-CSEG emulator_running 000000d2
 CSEG stopped_end  000000e9
+CSEG emulator_running 000000d2
 CSEG stopped      000000e3
 CSEG stop_now     0000046b
 CSEG start_now    00000466
+CSEG END_T0OVF    000000f3
 CSEG next_or_clear 00000470
 CSEG s_start      00000104
 CSEG print_station 00000370
@@ -1450,14 +1450,14 @@ CSEG convert_lcd_num 000001aa
 CSEG lcd_data     0000048d
 CSEG preserve     000001b5
 CSEG loop_start   00000368
-CSEG loop_start@mul_by_10@4460 000001c1
-CSEG overflow_occurred@mul_by_10@4460 000001c8
-CSEG macro_end@mul_by_10@4460 000001c9
+CSEG loop_start@mul_by_10@4459 000001c1
+CSEG overflow_occurred@mul_by_10@4459 000001c8
+CSEG macro_end@mul_by_10@4459 000001c9
 CSEG store_stat_max 000001ce
 CSEG store_station_time 000001e7
-CSEG loop_start@mul_by_10@4495 000001db
-CSEG overflow_occurred@mul_by_10@4495 000001e2
-CSEG macro_end@mul_by_10@4495 000001e3
+CSEG loop_start@mul_by_10@4494 000001db
+CSEG overflow_occurred@mul_by_10@4494 000001e2
+CSEG macro_end@mul_by_10@4494 000001e3
 CSEG next_check   000001f1
 CSEG store_stop_time 000001f5
 CSEG step_2       0000022c

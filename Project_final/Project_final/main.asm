@@ -151,7 +151,6 @@ stat_times: .byte 10			; 10 bytes to store transfer time for each station
 stations: .byte 1				; 1 byte to store the number of stations 
 TC: .byte 2					; tempcounter 
 
-
 .cseg
 jmp RESET
 .org INT0addr
@@ -310,14 +309,14 @@ continue_time_check:
 	clr temp
 	out PORTC, temp
 
-	check_hash_pressed temp
-	cpi temp, 0b00000100
-	breq End_T0OVF
-
 	cpi NPL, low(61)
 	ldi temp, high(61)
 	cpc NPH, temp
 	brne Not_a_second
+
+	check_hash_pressed temp
+	cpi temp, 0b00000100
+	breq stopped_end
 	
 	check_emulator temp
 	cpi temp, 0

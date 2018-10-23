@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm Tue Oct 23 14:55:05 2018
+AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm Tue Oct 23 15:23:24 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
@@ -2039,7 +2039,6 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(
 000278                           stations: .byte 1				; 1 byte to store the number of stations 
 000279                           TC: .byte 2					; tempcounter 
                                  
-                                 
                                  .cseg
 000000 940c 0030                 jmp RESET
                                  .org INT0addr
@@ -2223,15 +2222,15 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(
 0000c1 2700                      	clr temp
 0000c2 b908                      	out PORTC, temp
                                  
-0000c3 e004
-0000c4 2305                      	check_hash_pressed temp
-0000c5 3004                      	cpi temp, 0b00000100
-0000c6 f161                      	breq End_T0OVF
+0000c3 338d                      	cpi NPL, low(61)
+0000c4 e000                      	ldi temp, high(61)
+0000c5 0790                      	cpc NPH, temp
+0000c6 f541                      	brne Not_a_second
                                  
-0000c7 338d                      	cpi NPL, low(61)
-0000c8 e000                      	ldi temp, high(61)
-0000c9 0790                      	cpc NPH, temp
-0000ca f521                      	brne Not_a_second
+0000c7 e004
+0000c8 2305                      	check_hash_pressed temp
+0000c9 3004                      	cpi temp, 0b00000100
+0000ca f0f1                      	breq stopped_end
                                  	
 0000cb e008
 0000cc 2305                      	check_emulator temp

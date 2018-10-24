@@ -11,11 +11,11 @@
 .def temp_counter = r7
 .def max_stations = r8	; used in emulator mode to hold maximum number of stations 
 .def shift = r9			; used in step 2 to store the shift of the number for outputting letters 
-.def n_length = r10		; used as a buffer to store current length of name and length of time stop 
+.def n_length = r10		; used as a buffer to store current length of name
 .def stop_time = r11		; used for storing stop times between stations 
 .def current_station = r12	; used for storing current station number
 .def temp3 = r13 
-.def flag=  r14
+.def flag =  r14
 .def char_buff = r15	; serves as a buffer to store numbers, symbols, letters
 .def temp = r16
 .def row = r17

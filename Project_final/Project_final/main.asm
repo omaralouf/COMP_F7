@@ -1,9 +1,6 @@
-;
 ; Project_final.asm
 ;
-; Created: 10/21/2018 1:35:56 PM
-; Author : balabi
-;
+; Authors: Ihor Balaban & Omar Al-Ouf
 
 .include "m2560def.inc" 
 

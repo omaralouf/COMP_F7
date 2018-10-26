@@ -586,7 +586,7 @@ letters:
 
 ;relative branches out of reach
 set_stat_num_:
-	jmp set_stat_time
+	jmp set_stat_num
 set_stat_time_:
 	jmp set_stat_time
 set_stop_time_:

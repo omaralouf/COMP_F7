@@ -1,12 +1,12 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm Tue Oct 23 15:23:24 2018
+AVRASM ver. 2.2.7  C:\Users\omara\Documents\Atmel Studio\7.0\Project_final\Project_final\main.asm Fri Oct 26 14:44:26 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\omara\Documents\Atmel Studio\7.0\Project_final\Project_final\main.asm(5): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
-C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
+C:\Users\omara\Documents\Atmel Studio\7.0\Project_final\Project_final\main.asm(5): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc'
                                  
-                                 ;
+                                 ; Project_final.asm
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega2560.xml **********
                                  ;*************************************************************************
@@ -1844,11 +1844,8 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ; Project_final.asm
                                  ;
-                                 ; Created: 10/21/2018 1:35:56 PM
-                                 ; Author : balabi
-                                 ;
+                                 ; Authors: Ihor Balaban & Omar Al-Ouf
                                  
                                  .include "m2560def.inc" 
                                  
@@ -1899,11 +1896,11 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(
                                  .def temp_counter = r7
                                  .def max_stations = r8	; used in emulator mode to hold maximum number of stations 
                                  .def shift = r9			; used in step 2 to store the shift of the number for outputting letters 
-                                 .def n_length = r10		; used as a buffer to store current length of name and length of time stop 
+                                 .def n_length = r10		; used as a buffer to store current length of name
                                  .def stop_time = r11		; used for storing stop times between stations 
                                  .def current_station = r12	; used for storing current station number
                                  .def temp3 = r13 
-                                 .def flag=  r14
+                                 .def flag =  r14
                                  .def char_buff = r15	; serves as a buffer to store numbers, symbols, letters
                                  .def temp = r16
                                  .def row = r17
@@ -2516,7 +2513,7 @@ C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm(
                                  
                                  ;relative branches out of reach
                                  set_stat_num_:
-00018f 940c 01d2                 	jmp set_stat_time
+00018f 940c 01bb                 	jmp set_stat_num
                                  set_stat_time_:
 000191 940c 01d2                 	jmp set_stat_time
                                  set_stop_time_:

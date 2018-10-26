@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\balabi\Desktop\UNSW\Comp2121\Labs\Project_final\Project_final\main.asm Tue Oct 23 15:23:24 2018
+AVRASM ver. 2.2.7  C:\Users\omara\Documents\Atmel Studio\7.0\Project_final\Project_final\main.asm Fri Oct 26 14:44:26 2018
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1443,21 +1443,21 @@ CSEG set_stat_time_ 00000191
 CSEG set_stop_time_ 00000193
 CSEG store_space  00000181
 CSEG convert_end  000001ae
+CSEG set_stat_num 000001bb
 CSEG set_stat_time 000001d2
 CSEG set_stop_time 000001eb
-CSEG set_stat_num 000001bb
 CSEG convert_lcd_num 000001aa
 CSEG lcd_data     0000048d
 CSEG preserve     000001b5
 CSEG loop_start   00000368
-CSEG loop_start@mul_by_10@4459 000001c1
-CSEG overflow_occurred@mul_by_10@4459 000001c8
-CSEG macro_end@mul_by_10@4459 000001c9
+CSEG loop_start@mul_by_10@4456 000001c1
+CSEG overflow_occurred@mul_by_10@4456 000001c8
+CSEG macro_end@mul_by_10@4456 000001c9
 CSEG store_stat_max 000001ce
 CSEG store_station_time 000001e7
-CSEG loop_start@mul_by_10@4494 000001db
-CSEG overflow_occurred@mul_by_10@4494 000001e2
-CSEG macro_end@mul_by_10@4494 000001e3
+CSEG loop_start@mul_by_10@4491 000001db
+CSEG overflow_occurred@mul_by_10@4491 000001e2
+CSEG macro_end@mul_by_10@4491 000001e3
 CSEG next_check   000001f1
 CSEG store_stop_time 000001f5
 CSEG step_2       0000022c
